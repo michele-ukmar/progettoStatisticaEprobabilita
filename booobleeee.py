@@ -60,42 +60,73 @@ def calcola_bayes(df):
         print(f"   - Probabilità che un mazzo Top Tier sia Beatdown: {prob_condizionata*100:.1f}%")
 
 def mostra_grafici(df):
-    """Genera dashboard con Bubble Chart e Gaussiana."""
-    plt.figure(figsize=(16, 10))
-
-    # GRAFICO 1: Box Plot
-    plt.subplot(2, 2, 1)
-    sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette="Set2")
-    plt.title('1. Variabilità Win Rate (Box Plot)')
-    plt.grid(True, alpha=0.3)
-
-    # --- GRAFICO 2: BUBBLE CHART (Costo vs WinRate pesato per Partite) ---
-    plt.subplot(2, 2, 2)
-    # Usiamo scatterplot per gestire la dimensione (size) dei punti in base alle 'Partite'
-    sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate', 
-                    hue='Categoria', size='Partite', sizes=(40, 500), 
-                    alpha=0.6, palette="Set1")
-    # Aggiungiamo la linea di regressione sopra
-    sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False, color='black', line_kws={'linestyle':'--'})
-    plt.title('2. Costo vs Vittoria (Dimensione = Popolarità)')
-    plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
-    plt.grid(True, alpha=0.3)
-
-    # GRAFICO 3: DISTRIBUZIONE GAUSSIANA
-    plt.subplot(2, 2, 3)
-    sns.histplot(data=df, x='Win_Rate', hue='Categoria', kde=True, element="step", stat="density", common_norm=False)
-    plt.title('3. Analisi della Distribuzione (Gaussiana)')
-    plt.ylabel('Densità di Probabilità')
+    """
+    Genera dashboard professionale con Box Plot al posto del Violin Plot.
+    """
     
-    # GRAFICO 4: Volume di Gioco Totale
-    plt.subplot(2, 2, 4)
-    # Mostriamo la somma totale delle partite per categoria per evidenziare lo sbilanciamento di uso
-    sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.sum, palette="viridis", errorbar=None)
-    plt.title('4. Volume Totale di Partite per Categoria')
-    plt.ylabel('Somma Partite Giocate')
+    # 1. IMPOSTAZIONI ESTETICHE
+    sns.set_theme(style="whitegrid", context="talk")
+    plt.rcParams['figure.figsize'] = (20, 14)
+    plt.rcParams['font.weight'] = 'bold'
+    
+    # Palette fissa: Cycle=Blu, Beatdown=Rosso, Midrange=Verde
+    custom_palette = {"Cycle": "#3498db", "Beatdown": "#e74c3c", "Midrange": "#2ecc71"}
 
-    print("\n[INFO] Generazione dashboard... Chiudi la finestra del grafico per terminare.")
-    plt.tight_layout()
+    fig, axs = plt.subplots(2, 2, figsize=(20, 14))
+    plt.suptitle("ANALISI STATISTICA CLASH ROYALE: META-GAME REPORT", fontsize=24, fontweight='bold', y=0.96)
+
+    # --- GRAFICO 1: BUBBLE CHART ---
+    ax1 = axs[0, 0]
+    sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate', 
+                    hue='Categoria', palette=custom_palette,
+                    size='Partite', sizes=(50, 600), 
+                    alpha=0.6, edgecolor="black", linewidth=1, ax=ax1)
+    
+    sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False, 
+                color='#2c3e50', line_kws={'linestyle':'--', 'linewidth': 2}, ax=ax1)
+    
+    ax1.set_title('1. Costo vs Win Rate (Dimensione = Popolarità)', fontsize=16)
+    ax1.set_xlabel('Costo Elisir Medio')
+    ax1.set_ylabel('Win Rate %')
+    ax1.legend(bbox_to_anchor=(1.02, 1), loc='upper left', frameon=True)
+
+    # --- GRAFICO 2: GAUSSIANE (KDE) ---
+    ax2 = axs[0, 1]
+    sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette, 
+                fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
+    
+    ax2.set_title('2. Distribuzioni di Probabilità (Gaussiane)', fontsize=16)
+    ax2.set_xlabel('Win Rate %')
+    ax2.set_ylabel('Densità')
+
+    # --- GRAFICO 3: BOX PLOT (TORNATO!) ---
+    ax3 = axs[1, 0]
+    # width=0.5 rende i box più snelli ed eleganti
+    sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette=custom_palette, 
+                width=0.5, linewidth=2, fliersize=5, ax=ax3)
+    
+    ax3.set_title('3. Analisi dei Quartili e Outliers (Box Plot)', fontsize=16)
+    ax3.set_ylabel('Win Rate %')
+    ax3.set_xlabel('')
+
+    # --- GRAFICO 4: VOLUME TOTALE ---
+    ax4 = axs[1, 1]
+    barplot = sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.sum, 
+                          palette=custom_palette, errorbar=None, ax=ax4, edgecolor="black")
+    
+    ax4.set_title('4. Volume Totale Partite Giocate', fontsize=16)
+    ax4.set_ylabel('Totale Partite')
+    ax4.set_xlabel('')
+    
+    # Numeri sulle barre
+    for p in barplot.patches:
+        height = p.get_height()
+        ax4.text(p.get_x() + p.get_width()/2., height + 1000,
+                f'{int(height):,}', ha="center", fontsize=14, fontweight='bold', color='#2c3e50')
+
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    sns.despine()
+    print("\n[INFO] Generazione Dashboard con Box Plot...")
     plt.show()
 
 def main():
