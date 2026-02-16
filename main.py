@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# --- FUNZIONE 1: Caricamento Dati ---
 def carica_dataset(nome_file):
-    """Carica il CSV e gestisce eventuali errori."""
     try:
         df = pd.read_csv(nome_file)
         print(f"[OK] Dataset caricato: {len(df)} mazzi analizzati.")
@@ -15,9 +13,7 @@ def carica_dataset(nome_file):
         print(f"[ERRORE] Il file '{nome_file}' non esiste. Controlla la cartella.")
         exit()
 
-# --- FUNZIONE 2: Calcoli Statistici ---
 def genera_report_testuale(df):
-    """Calcola e stampa le statistiche descrittive (Media, Varianza, Correlazione)."""
     cycle = df[df['Categoria'] == 'Cycle']['Win_Rate']
     beatdown = df[df['Categoria'] == 'Beatdown']['Win_Rate']
 
@@ -49,10 +45,8 @@ def genera_report_testuale(df):
     elif corr > 0:
         print("   -> INTERPRETAZIONE: Correlazione Positiva (Mazzi costosi avvantaggiati).")
 
-# --- FUNZIONE 3: Probabilità Bayesiana ---
 def calcola_bayes(df):
     """Esempio di Probabilità Condizionata: P(Beatdown | WinRate > 52%)."""
-    # Definiamo 'Top Tier' i mazzi con Win Rate > 52%
     top_tier = df[df['Win_Rate'] > 52.0]
     
     # Probabilità Totale di essere Top Tier P(B)
@@ -71,7 +65,6 @@ def calcola_bayes(df):
     else:
         print("\n3. PROBABILITÀ: Nessun mazzo supera la soglia del 52%.")
 
-# --- FUNZIONE 4: Grafici ---
 def mostra_grafici(df):
     """Genera Box Plot e Scatter Plot."""
     plt.figure(figsize=(14, 6))
@@ -94,17 +87,13 @@ def mostra_grafici(df):
     plt.tight_layout()
     plt.show()
 
-# --- IL MAIN (Punto di ingresso) ---
+
 def main():
-    # 1. Configurazione
     file_path = 'dataset_clash.csv'
-    
-    # 2. Esecuzione sequenziale
     dataset = carica_dataset(file_path)
     genera_report_testuale(dataset)
     calcola_bayes(dataset)
     mostra_grafici(dataset)
 
-# Questo controllo serve a dire a Python: "Esegui main solo se lancio questo file direttamente"
 if __name__ == "__main__":
     main()
