@@ -31,12 +31,10 @@ def genera_report_testuale(df):
     else:
         print("   -> CONCLUSIONE: La variabilità è simile tra le categorie.")
 
-    # --- NUOVA PARTE: ANALISI DELLA FORMA (GAUSSIANA) ---
     print(f"\n1b. ANALISI DELLA FORMA (Curtosi e Asimmetria)")
-    # La Curtosi ci dice quanto è "appuntita" la campana
     print(f"   - Curtosi Cycle:    {stats.kurtosis(cycle):.2f}")
     print(f"   - Curtosi Beatdown: {stats.kurtosis(beatdown):.2f}")
-    print("   (Nota: Valori più alti = Curva più stretta e appuntita = Risultati più prevedibili)")
+    print("   (Nota: Curtosi alta = curva più 'appuntita', risultati molto concentrati)")
 
     # 2. Correlazione (Relazione Lineare)
     corr = df['Costo_Elisir'].corr(df['Win_Rate'])
@@ -48,65 +46,55 @@ def genera_report_testuale(df):
     
     if abs(corr) < 0.3:
         print("   -> INTERPRETAZIONE: Non esiste una correlazione significativa.")
-        print("      Vincere non dipende da quanto costa il mazzo (Skill > Costo).")
-    elif corr > 0:
-        print("   -> INTERPRETAZIONE: Correlazione Positiva (Mazzi costosi avvantaggiati).")
+        print("      Vincere non dipende dal costo del mazzo (Skill > Elisir).")
 
 def calcola_bayes(df):
-    """Esempio di Probabilità Condizionata: P(Beatdown | WinRate > 52%)."""
     top_tier = df[df['Win_Rate'] > 52.0]
-    
-    # Probabilità Totale di essere Top Tier P(B)
     prob_top_tier = len(top_tier) / len(df)
-    
-    # Probabilità Congiunta P(A e B) -> Essere Beatdown E Top Tier
     beatdown_top = top_tier[top_tier['Categoria'] == 'Beatdown']
     prob_intersezione = len(beatdown_top) / len(df)
     
-    # Teorema di Bayes (semplificato): P(A|B) = P(A intersecato B) / P(B)
     if prob_top_tier > 0:
         prob_condizionata = prob_intersezione / prob_top_tier
         print(f"\n3. PROBABILITÀ CONDIZIONATA (BAYES)")
-        print(f"   - Domanda: Se vedo un mazzo vincente (>52%), che probabilità c'è che sia Beatdown?")
-        print(f"   - Risposta: {prob_condizionata*100:.1f}%")
-    else:
-        print("\n3. PROBABILITÀ: Nessun mazzo supera la soglia del 52%.")
+        print(f"   - Probabilità che un mazzo Top Tier sia Beatdown: {prob_condizionata*100:.1f}%")
 
 def mostra_grafici(df):
-    """Genera una dashboard con 4 grafici inclusa la Gaussiana."""
-    # Impostiamo una griglia 2x2 (più grande)
+    """Genera dashboard con Bubble Chart e Gaussiana."""
     plt.figure(figsize=(16, 10))
 
-    # GRAFICO 1: Box Plot (Alto Sinistra)
+    # GRAFICO 1: Box Plot
     plt.subplot(2, 2, 1)
     sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette="Set2")
-    plt.title('1. Variabilità dei Risultati (Box Plot)')
-    plt.ylabel('Win Rate %')
+    plt.title('1. Variabilità Win Rate (Box Plot)')
     plt.grid(True, alpha=0.3)
 
-    # GRAFICO 2: Scatter Plot (Alto Destra)
+    # --- GRAFICO 2: BUBBLE CHART (Costo vs WinRate pesato per Partite) ---
     plt.subplot(2, 2, 2)
-    sns.regplot(x='Costo_Elisir', y='Win_Rate', data=df, line_kws={'color':'red'})
-    plt.title(f'2. Correlazione Costo vs Vittoria')
-    plt.xlabel('Costo Elisir')
-    plt.ylabel('Win Rate %')
+    # Usiamo scatterplot per gestire la dimensione (size) dei punti in base alle 'Partite'
+    sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate', 
+                    hue='Categoria', size='Partite', sizes=(40, 500), 
+                    alpha=0.6, palette="Set1")
+    # Aggiungiamo la linea di regressione sopra
+    sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False, color='black', line_kws={'linestyle':'--'})
+    plt.title('2. Costo vs Vittoria (Dimensione = Popolarità)')
+    plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
     plt.grid(True, alpha=0.3)
 
-    # --- NUOVO GRAFICO 3: DISTRIBUZIONE GAUSSIANA (Basso Sinistra) ---
+    # GRAFICO 3: DISTRIBUZIONE GAUSSIANA
     plt.subplot(2, 2, 3)
-    # kde=True aggiunge la linea curva (la Gaussiana stimata)
-    sns.histplot(data=df, x='Win_Rate', hue='Categoria', kde=True, element="step", stat="density")
-    plt.title('3. Distribuzione Gaussiana (Densità)')
-    plt.xlabel('Win Rate %')
-    plt.ylabel('Probabilità (Densità)')
+    sns.histplot(data=df, x='Win_Rate', hue='Categoria', kde=True, element="step", stat="density", common_norm=False)
+    plt.title('3. Analisi della Distribuzione (Gaussiana)')
+    plt.ylabel('Densità di Probabilità')
     
-    # GRAFICO 4: Popolarità (Basso Destra) - Bonus per riempire lo spazio
+    # GRAFICO 4: Volume di Gioco Totale
     plt.subplot(2, 2, 4)
-    sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.mean, palette="viridis", errorbar=None)
-    plt.title('4. Popolarità Media (Partite Giocate)')
-    plt.ylabel('Media Partite')
+    # Mostriamo la somma totale delle partite per categoria per evidenziare lo sbilanciamento di uso
+    sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.sum, palette="viridis", errorbar=None)
+    plt.title('4. Volume Totale di Partite per Categoria')
+    plt.ylabel('Somma Partite Giocate')
 
-    print("\n[INFO] Generazione grafici in corso...")
+    print("\n[INFO] Generazione dashboard... Chiudi la finestra del grafico per terminare.")
     plt.tight_layout()
     plt.show()
 
