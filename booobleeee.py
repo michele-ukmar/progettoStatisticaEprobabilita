@@ -66,14 +66,14 @@ def mostra_grafici(df):
     
     # 1. IMPOSTAZIONI ESTETICHE
     sns.set_theme(style="whitegrid", context="talk")
-    plt.rcParams['figure.figsize'] = (20, 14)
+    plt.rcParams['figure.figsize'] = (16, 12)
     plt.rcParams['font.weight'] = 'bold'
     
     # Palette fissa: Cycle=Blu, Beatdown=Rosso, Midrange=Verde
     custom_palette = {"Cycle": "#3498db", "Beatdown": "#e74c3c", "Midrange": "#2ecc71"}
 
-    fig, axs = plt.subplots(2, 2, figsize=(20, 14))
-    plt.suptitle("ANALISI STATISTICA CLASH ROYALE: META-GAME REPORT", fontsize=24, fontweight='bold', y=0.96)
+    fig, axs = plt.subplots(2, 2, figsize=(16, 12))
+    fig.suptitle("ANALISI STATISTICA CLASH ROYALE: META-GAME REPORT", fontsize=18, fontweight='bold')
 
     # --- GRAFICO 1: BUBBLE CHART ---
     ax1 = axs[0, 0]
@@ -85,19 +85,23 @@ def mostra_grafici(df):
     sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False, 
                 color='#2c3e50', line_kws={'linestyle':'--', 'linewidth': 2}, ax=ax1)
     
-    ax1.set_title('1. Costo vs Win Rate (Dimensione = Popolarità)', fontsize=16)
-    ax1.set_xlabel('Costo Elisir Medio')
-    ax1.set_ylabel('Win Rate %')
-    ax1.legend(bbox_to_anchor=(1.02, 1), loc='upper left', frameon=True)
+    ax1.set_title('1. Costo vs Win Rate (Dimensione = Popolarità)', fontsize=12, pad=8)
+    ax1.set_xlabel('Costo Elisir Medio', fontsize=10)
+    ax1.set_ylabel('Win Rate %', fontsize=10)
+    ax1.get_legend().remove()  # Rimuove legenda duplicata
 
     # --- GRAFICO 2: GAUSSIANE (KDE) ---
     ax2 = axs[0, 1]
     sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette, 
                 fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
     
-    ax2.set_title('2. Distribuzioni di Probabilità (Gaussiane)', fontsize=16)
-    ax2.set_xlabel('Win Rate %')
-    ax2.set_ylabel('Densità')
+    ax2.set_title('2. Distribuzioni di Probabilità (Gaussiane)', fontsize=12, pad=8)
+    ax2.set_xlabel('Win Rate %', fontsize=10)
+    ax2.set_ylabel('Densità', fontsize=10)
+    legend = ax2.get_legend()
+    legend.set_title('Categoria')
+    legend.set_bbox_to_anchor((0.98, 0.98))
+    legend.set_loc('upper right')
 
     # --- GRAFICO 3: BOX PLOT (TORNATO!) ---
     ax3 = axs[1, 0]
@@ -105,8 +109,8 @@ def mostra_grafici(df):
     sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette=custom_palette, 
                 width=0.5, linewidth=2, fliersize=5, ax=ax3)
     
-    ax3.set_title('3. Analisi dei Quartili e Outliers (Box Plot)', fontsize=16)
-    ax3.set_ylabel('Win Rate %')
+    ax3.set_title('3. Analisi dei Quartili e Outliers (Box Plot)', fontsize=12, pad=8)
+    ax3.set_ylabel('Win Rate %', fontsize=10)
     ax3.set_xlabel('')
 
     # --- GRAFICO 4: VOLUME TOTALE ---
@@ -114,17 +118,18 @@ def mostra_grafici(df):
     barplot = sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.sum, 
                           palette=custom_palette, errorbar=None, ax=ax4, edgecolor="black")
     
-    ax4.set_title('4. Volume Totale Partite Giocate', fontsize=16)
-    ax4.set_ylabel('Totale Partite')
+    ax4.set_title('4. Volume Totale Partite Giocate', fontsize=12, pad=8)
+    ax4.set_ylabel('Totale Partite', fontsize=10)
     ax4.set_xlabel('')
     
     # Numeri sulle barre
     for p in barplot.patches:
         height = p.get_height()
         ax4.text(p.get_x() + p.get_width()/2., height + 1000,
-                f'{int(height):,}', ha="center", fontsize=14, fontweight='bold', color='#2c3e50')
+                f'{int(height):,}', ha="center", fontsize=10, fontweight='bold', color='#2c3e50')
 
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    # Layout migliorato con spazi adeguati
+    plt.subplots_adjust(top=0.93, bottom=0.08, left=0.08, right=0.93, hspace=0.30, wspace=0.28)
     sns.despine()
     print("\n[INFO] Generazione Dashboard con Box Plot...")
     plt.show()
