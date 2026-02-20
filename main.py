@@ -181,7 +181,7 @@ def grafico_top_5_combinato(df):
     ax_aux.spines['right'].set_color('#2c3e50')
     
     # Titolo
-    ax_main.set_title('Top 10 Mazzi: Mazzi più Vincenti vs Mazzi più Giocati (Assi Y Sincronizzati)', 
+    ax_main.set_title('Mazzi più Vincenti vs Mazzi più Giocati', 
                      fontsize=14, fontweight='bold', pad=15, color='#2c3e50')
     
     # Legenda
