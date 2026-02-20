@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-REQUIRED_COLUMNS = {"Categoria", "Win_Rate", "Costo_Elisir", "Partite"}
+COLONNE_OBBLIGATORIE = {"Categoria", "Win_Rate", "Costo_Elisir", "Partite"}
 
 
 def carica_dataset(nome_file):
@@ -20,7 +20,7 @@ def carica_dataset(nome_file):
 
 
 def valida_dataset(df):
-    missing = REQUIRED_COLUMNS - set(df.columns)
+    missing = COLONNE_OBBLIGATORIE - set(df.columns)
     if missing:
         raise ValueError(f"Colonne mancanti nel dataset: {sorted(missing)}")
 
@@ -55,7 +55,7 @@ def genera_report_testuale(df):
     validi = df[["Costo_Elisir", "Win_Rate"]].dropna()
     cov = np.cov(validi["Costo_Elisir"], validi["Win_Rate"])[0][1] if not validi.empty else np.nan
     
-    print(f"\n2. RELAZIONE COSTO-VITTORIA")
+    print(f"\n2. RELAZIONE COSTO-WIN RATE")
     print(f"   - Covarianza:   {cov:.4f}")
     print(f"   - Correlazione: {corr:.4f}")
     
@@ -72,7 +72,7 @@ def calcola_bayes(df, soglia_top=52.0):
     if prob_top_tier > 0:
         prob_condizionata = prob_intersezione / prob_top_tier
         print(f"\n3. PROBABILITÀ CONDIZIONATA (BAYES)")
-        print(f"   - Probabilità che un mazzo Top Tier sia Beatdown: {prob_condizionata*100:.1f}%")
+        print(f"   - Probabilità che un mazzo di fascia alta sia Beatdown: {prob_condizionata*100:.1f}%")
 
 def mostra_grafici(df):
     """Genera dashboard con 4 grafici."""
@@ -83,7 +83,7 @@ def mostra_grafici(df):
     custom_palette = {"Cycle": "#3498db", "Beatdown": "#e74c3c", "Midrange": "#2ecc71"}
 
     fig, axs = plt.subplots(2, 2, figsize=(16, 12))
-    fig.suptitle("ANALISI STATISTICA CLASH ROYALE: META-GAME REPORT", fontsize=18, fontweight='bold')
+    fig.suptitle("ANALISI STATISTICA CLASH ROYALE: REPORT DEL META-GAME", fontsize=18, fontweight='bold')
 
     ax1 = axs[0, 0]
     sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate', 
@@ -115,7 +115,7 @@ def mostra_grafici(df):
     sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette=custom_palette, 
                 width=0.5, linewidth=2, fliersize=5, ax=ax3)
     
-    ax3.set_title('3. Analisi dei Quartili e Outliers (Box Plot)', fontsize=12, pad=8)
+    ax3.set_title('3. Analisi dei Quartili e Valori Anomali (Box Plot)', fontsize=12, pad=8)
     ax3.set_ylabel('Win Rate %', fontsize=10)
     ax3.set_xlabel('')
 
@@ -134,7 +134,7 @@ def mostra_grafici(df):
 
     plt.subplots_adjust(top=0.93, bottom=0.08, left=0.08, right=0.93, hspace=0.30, wspace=0.28)
     sns.despine()
-    print("\n[INFO] Generazione Dashboard con Box Plot...")
+    print("\n[INFO] Generazione dashboard con box plot...")
     plt.show()
 
 def main():
