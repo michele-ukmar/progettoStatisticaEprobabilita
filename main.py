@@ -97,13 +97,12 @@ def mostra_grafici(df):
     ax1 = axs[0, 0]
     sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate', 
                     hue='Categoria', palette=custom_palette,
-                    size='Partite', sizes=(50, 600), 
-                    alpha=0.6, edgecolor="black", linewidth=1, ax=ax1)
+                    s=80, alpha=0.6, edgecolor="black", linewidth=1, ax=ax1)
     
     sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False, 
                 color='#2c3e50', line_kws={'linestyle':'--', 'linewidth': 2}, ax=ax1)
     
-    ax1.set_title('1. Costo vs Win Rate (Dimensione = Popolarità)', fontsize=12, pad=8)
+    ax1.set_title('1. Costo vs Win Rate', fontsize=12, pad=8)
     ax1.set_xlabel('Costo Elisir Medio', fontsize=10)
     ax1.set_ylabel('Win Rate %', fontsize=10)
     ax1.get_legend().remove()
@@ -146,6 +145,68 @@ def mostra_grafici(df):
     print("\n[INFO] Generazione dashboard con box plot...")
     plt.savefig('dashboard_analisi.png', dpi=150, bbox_inches='tight')
     print("[OK] Dashboard salvato come 'dashboard_analisi.png'")
+    plt.close(fig)
+
+    fig1, ax1 = plt.subplots(figsize=(9, 7))
+    sns.scatterplot(data=df, x='Costo_Elisir', y='Win_Rate',
+                    hue='Categoria', palette=custom_palette,
+                    s=80, alpha=0.6, edgecolor="black", linewidth=1, ax=ax1)
+    sns.regplot(data=df, x='Costo_Elisir', y='Win_Rate', scatter=False,
+                color='#2c3e50', line_kws={'linestyle': '--', 'linewidth': 2}, ax=ax1)
+    ax1.set_title('Costo vs Win Rate', fontsize=13, pad=8)
+    ax1.set_xlabel('Costo Elisir Medio', fontsize=10)
+    ax1.set_ylabel('Win Rate %', fontsize=10)
+    sns.despine()
+    fig1.tight_layout()
+    fig1.savefig('grafico_1_costo_vs_win_rate.png', dpi=150, bbox_inches='tight')
+    plt.close(fig1)
+
+    fig2, ax2 = plt.subplots(figsize=(9, 7))
+    sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette,
+                fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
+    ax2.set_title('Distribuzioni di Probabilità (Gaussiane)', fontsize=13, pad=8)
+    ax2.set_xlabel('Win Rate %', fontsize=10)
+    ax2.set_ylabel('Densità', fontsize=10)
+    legend = ax2.get_legend()
+    legend.set_title('Categoria')
+    legend.set_bbox_to_anchor((0.98, 0.98))
+    legend.set_loc('upper right')
+    sns.despine()
+    fig2.tight_layout()
+    fig2.savefig('grafico_2_distribuzioni.png', dpi=150, bbox_inches='tight')
+    plt.close(fig2)
+
+    fig3, ax3 = plt.subplots(figsize=(9, 7))
+    sns.boxplot(x='Categoria', y='Win_Rate', data=df, hue='Categoria', palette=custom_palette,
+                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False)
+    ax3.set_title('Analisi Quartili e Valori Anomali (Box Plot)', fontsize=13, pad=8)
+    ax3.set_ylabel('Win Rate %', fontsize=10)
+    ax3.set_xlabel('')
+    sns.despine()
+    fig3.tight_layout()
+    fig3.savefig('grafico_3_box_plot.png', dpi=150, bbox_inches='tight')
+    plt.close(fig3)
+
+    fig4, ax4 = plt.subplots(figsize=(9, 7))
+    barplot4 = sns.barplot(x='Categoria', y='Partite', data=df, hue='Categoria', estimator=np.sum,
+                           palette=custom_palette, errorbar=None, ax=ax4, edgecolor="black", legend=False)
+    ax4.set_title('Volume Totale Partite Giocate', fontsize=13, pad=8)
+    ax4.set_ylabel('Totale Partite', fontsize=10)
+    ax4.set_xlabel('')
+    for p in barplot4.patches:
+        height = p.get_height()
+        ax4.text(p.get_x() + p.get_width() / 2., height + 1000,
+                 f'{int(height):,}', ha="center", fontsize=10, fontweight='bold', color='#2c3e50')
+    sns.despine()
+    fig4.tight_layout()
+    fig4.savefig('grafico_4_volume_partite.png', dpi=150, bbox_inches='tight')
+    plt.close(fig4)
+
+    print("[OK] Creati anche i PNG singoli:")
+    print("     - grafico_1_costo_vs_win_rate.png")
+    print("     - grafico_2_distribuzioni.png")
+    print("     - grafico_3_box_plot.png")
+    print("     - grafico_4_volume_partite.png")
     # Uncomment the line below if running in an interactive environment with a display
     # plt.show()
 
