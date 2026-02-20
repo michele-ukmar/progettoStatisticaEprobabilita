@@ -27,6 +27,15 @@ def valida_dataset(df):
     df = df.dropna(subset=["Categoria", "Win_Rate", "Costo_Elisir", "Partite"])
     if df.empty:
         raise ValueError("Il dataset e' vuoto dopo la pulizia dei dati mancanti.")
+    
+    # Remove invalid category rows (header rows or bad data)
+    df = df[df['Categoria'] != 'Category']
+    
+    # Convert numeric columns to proper types
+    df['Win_Rate'] = pd.to_numeric(df['Win_Rate'], errors='coerce')
+    df['Costo_Elisir'] = pd.to_numeric(df['Costo_Elisir'], errors='coerce')
+    df['Partite'] = pd.to_numeric(df['Partite'], errors='coerce')
+    
     return df
 
 def genera_report_testuale(df):
@@ -112,16 +121,16 @@ def mostra_grafici(df):
     legend.set_loc('upper right')
 
     ax3 = axs[1, 0]
-    sns.boxplot(x='Categoria', y='Win_Rate', data=df, palette=custom_palette, 
-                width=0.5, linewidth=2, fliersize=5, ax=ax3)
+    sns.boxplot(x='Categoria', y='Win_Rate', data=df, hue='Categoria', palette=custom_palette, 
+                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False)
     
     ax3.set_title('3. Analisi dei Quartili e Valori Anomali (Box Plot)', fontsize=12, pad=8)
     ax3.set_ylabel('Win Rate %', fontsize=10)
     ax3.set_xlabel('')
 
     ax4 = axs[1, 1]
-    barplot = sns.barplot(x='Categoria', y='Partite', data=df, estimator=np.sum, 
-                        palette=custom_palette, errorbar=None, ax=ax4, edgecolor="black")
+    barplot = sns.barplot(x='Categoria', y='Partite', data=df, hue='Categoria', estimator=np.sum, 
+                        palette=custom_palette, errorbar=None, ax=ax4, edgecolor="black", legend=False)
     
     ax4.set_title('4. Volume Totale Partite Giocate', fontsize=12, pad=8)
     ax4.set_ylabel('Totale Partite', fontsize=10)
@@ -135,7 +144,10 @@ def mostra_grafici(df):
     plt.subplots_adjust(top=0.93, bottom=0.08, left=0.08, right=0.93, hspace=0.30, wspace=0.28)
     sns.despine()
     print("\n[INFO] Generazione dashboard con box plot...")
-    plt.show()
+    plt.savefig('dashboard_analisi.png', dpi=150, bbox_inches='tight')
+    print("[OK] Dashboard salvato come 'dashboard_analisi.png'")
+    # Uncomment the line below if running in an interactive environment with a display
+    # plt.show()
 
 def main():
     file_path = 'dataset_clash.csv'

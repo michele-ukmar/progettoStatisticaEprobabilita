@@ -1,223 +1,502 @@
 Mazzo,Costo_Elisir,Win_Rate,Partite,Categoria
-Hog_2.6_Cycle,2.6,49.2,15400,Cycle
-Log_Bait_Classic,3.0,50.8,12500,Cycle
-Miner_WallBreakers,2.8,51.5,8900,Cycle
-X-Bow_3.0,3.0,48.1,7200,Cycle
-Mortar_Miner_Poison,2.9,52.3,6500,Cycle
-Drill_Poison_Cycle,2.7,53.1,5000,Cycle
-Hog_Earthquake,3.1,50.4,9800,Cycle
-Royal_Delivery_Cycle,2.5,47.8,4200,Cycle
-Miner_Control,3.0,51.2,11000,Cycle
-Phoenix_Cycle,3.1,52.5,8500,Cycle
-Wall_Breakers_MA,2.6,51.3,4400,Cycle
-Balloon_Miner_Cycle,2.9,52.4,6200,Cycle
-Hog_Firecracker,2.8,49.8,13000,Cycle
-Mighty_Miner_LogBait,3.1,53.5,4900,Cycle
-Drill_Bomber,2.6,54.1,2800,Cycle
-Mortar_Rocket_Bait,3.1,51.0,5400,Cycle
-Ram_Rider_Cycle,3.0,48.9,3500,Cycle
-Hog_Valk_Cycle,3.1,49.5,11000,Cycle
-Princess_Rocket_Cycle,3.0,47.5,3000,Cycle
-Miner_Poison_2.9,2.9,51.7,7500,Cycle
-Skeleton_King_Mortar,3.1,52.8,4100,Cycle
-Royal_Hogs_Cycle,3.1,52.0,6000,Cycle
-Barrel_Cycle,2.8,48.6,9200,Cycle
-Hog_GiantSkellie,3.1,50.0,5000,Cycle
-Recruits_WallBreakers,3.2,51.9,4300,Cycle
-Golem_NightWitch,4.4,52.9,4100,Beatdown
-LavaLoon_Classic,4.1,54.2,3600,Beatdown
-Electro_Giant_Mirror,4.6,48.8,3200,Beatdown
-Giant_Double_Prince,3.9,51.1,5500,Beatdown
-Golem_Pump_Beatdown,4.8,55.5,2100,Beatdown
-Royal_Giant_Fisherman,4.2,50.9,6800,Beatdown
-Pekka_Bridge_Spam,3.9,49.7,10500,Beatdown
-Electro_Giant_Healer,4.5,50.2,2800,Beatdown
-Three_Musketeers_Pump,4.3,53.8,3100,Beatdown
-Giant_Graveyard_Beatdown,4.0,52.1,4500,Beatdown
-Goblin_Giant_Sparky,4.4,54.5,3300,Beatdown
-Lava_Miner_Control,4.3,53.2,2900,Beatdown
-Egolem_Healer_Drag,4.1,51.8,4800,Beatdown
-Golem_Clone,4.3,50.5,1500,Beatdown
-Mega_Knight_Idrag,4.1,49.9,9000,Beatdown
-Pekka_Ram_Lightning,4.1,51.4,6700,Beatdown
-Lava_Clone,4.0,52.6,2200,Beatdown
-Giant_Sparky_Rage,4.2,53.9,3100,Beatdown
-Golem_Edrag,4.6,54.8,1800,Beatdown
-Skeleton_King_Golem,4.4,52.2,2500,Beatdown
-Recruits_Hogs_Fireball,4.3,53.1,3800,Beatdown
-Egolem_Phoenix,4.2,50.7,4200,Beatdown
-Giant_Witch,3.9,48.4,5600,Beatdown
-Lava_Balloon_Guards,4.1,55.1,2000,Beatdown
-Mega_Knight_Sparky,4.5,51.0,2900,Beatdown
-X-Bow_Pump,3.5,46.5,1200,Midrange
-Miner_Rocket_Cycle,2.9,50.1,6700,Cycle
-Hog_Mortar,3.0,51.2,5300,Cycle
-Lava_Miner_SkeletonDrag,4.0,53.5,2100,Beatdown
-Giant_Skeleton_Clone,4.2,49.1,1800,Beatdown
-E-Giant_Lightning,4.4,51.3,3400,Beatdown
-Log_Bait_Prince,3.3,52.0,4100,Cycle
-Splash_Yard,3.4,51.8,7200,Midrange
-Pekka_Loon,4.3,50.6,1900,Beatdown
-Golem_Cannon_Cart,4.5,53.3,1600,Beatdown
-Drill_Marcher,2.8,52.7,4800,Cycle
-Hog_MiniPekka,2.9,49.4,9500,Cycle
-Royal_Giant_Lightning,3.8,51.5,6200,Beatdown
-Mega_Knight_WallBreakers,3.6,50.9,8100,Midrange
-Miner_Loon_Cycle,3.0,51.6,5900,Cycle
-LumberLoon_Freeze,3.8,52.2,7500,Beatdown
-Giant_MinionHorde,4.1,48.2,1400,Beatdown
-Royal_Recruits_Ceiling,4.3,52.8,2200,Beatdown
-Elixir_Golem_Battle_Healer,3.9,51.1,4000,Beatdown
-Goblin_Drill_Bandit,2.7,53.0,3300,Cycle
-Mortar_Hog_Bait,3.1,50.3,5600,Cycle
-Prince_Rascals_Bait,3.4,51.9,2800,Cycle
-Hog_Musketeer_2.8,2.8,49.9,11200,Cycle
-Lava_Flying_Machine,4.2,53.7,2500,Beatdown
-Pekka_Bridge_Spam_Classic,3.8,50.5,12000,Midrange
-Royal_Hogs_Zappies,3.4,51.8,14500,Midrange
-Queen_Hogs_2.8,3.5,52.4,9800,Midrange
-Mega_Knight_Miner_ZapBait,3.5,49.1,13000,Midrange
-Giant_Double_Prince_Classic,3.8,51.2,7500,Midrange
-Ram_Rider_Lightning_Mid,3.6,50.8,5400,Midrange
-Mortar_Miner_Control,3.4,52.7,6100,Midrange
-Golden_Knight_Drill,3.4,53.2,4200,Midrange
-Pekka_Bridge_Spam_Var,3.6,50.5,8000,Midrange
-Giant_Double_Prince_Classic,3.8,51.2,7500,Midrange
-Queen_Piglets_Mid,3.5,52.1,6000,Midrange
-Royal_Hogs_Zappies,3.4,51.8,9000,Midrange
-MegaKnight_Miner_Control,3.5,49.8,11000,Midrange
-Golem_Prince,4.6,52.4,1900,Beatdown
-Giant_Prince_Electro,3.8,51.0,4600,Beatdown
-Pekka_Zappies,4.0,50.1,5800,Beatdown
-Skeleton_Barrel_Bait,3.0,48.8,6100,Cycle
-Miner_Poison_Hunter,2.9,51.4,7000,Cycle
-Royal_Hogs_Hunter,3.1,52.1,5200,Cycle
-Hog_2.6_V2,2.6,48.5,14000,Cycle
-Log_Bait_Tesla,3.0,49.9,11000,Cycle
-Miner_WB_Knight,2.8,52.1,8500,Cycle
-X-Bow_2.9_Classic,2.9,47.5,6800,Cycle
-Mortar_Rocket_Cycle,3.1,51.5,5900,Cycle
-Drill_Wall_Breakers,2.8,52.8,4700,Cycle
-Hog_EQ_Firecracker,3.1,50.1,9200,Cycle
-Royal_Delivery_Spam,2.7,48.2,3900,Cycle
-Miner_Poison_Valchiria,3.0,51.8,10500,Cycle
-Phoenix_Electro_Cycle,3.2,52.1,8100,Cycle
-Wall_Breakers_Skeletons,2.5,50.9,4100,Cycle
-Balloon_Miner_Control,3.0,51.9,5800,Cycle
-Hog_Exe_Nado,3.3,49.2,12500,Midrange
-Mighty_Miner_WB,2.9,53.1,4600,Cycle
-Drill_Poison_V2,2.7,53.8,2500,Cycle
-Mortar_Bait_Minions,3.2,50.8,5100,Cycle
-Ram_Rider_Bolo,3.2,48.5,3200,Cycle
-Hog_Valk_Musk,3.1,49.1,10200,Cycle
-Princess_Rocket_Inferno,3.1,47.2,2800,Cycle
-Miner_Poison_BombTower,2.9,52.1,7200,Cycle
-Skeleton_King_Drill,3.2,53.1,3900,Cycle
-Royal_Hogs_Fireball,3.3,52.4,5700,Midrange
-Barrel_DartGoblin,2.8,48.1,8800,Cycle
-Hog_IceG_Cycle,2.7,49.7,4800,Cycle
-Recruits_Miner_Bait,3.3,52.2,4100,Midrange
-Golem_NightWitch_Pump,4.5,53.5,3900,Beatdown
-LavaLoon_Inferno,4.2,54.8,3400,Beatdown
-E_Giant_Cycle,3.5,49.1,3000,Midrange
-Giant_Prince_Zap,3.8,50.8,5100,Midrange
-Golem_Lightning_Classic,4.6,55.1,1900,Beatdown
-RG_Ghost_Fisherman,4.1,51.2,6500,Beatdown
-Pekka_Ram_Rider,4.0,50.1,9800,Beatdown
-E_Giant_Tornado,4.4,50.5,2600,Beatdown
-Three_Musk_Healer,4.4,54.2,2900,Beatdown
-Giant_GY_Freeze,4.1,52.5,4200,Beatdown
-Goblin_Giant_Rage,4.2,54.8,3100,Beatdown
-Lava_Miner_Dragon,4.1,53.5,2700,Beatdown
-Egolem_BattleHealer,4.0,52.1,4500,Beatdown
-Golem_SkelKing,4.4,50.8,1400,Beatdown
-MK_Ram_Rider,4.2,50.2,8500,Beatdown
-Pekka_Executioner,4.3,51.8,6200,Beatdown
-Lava_Clone_V2,3.9,52.9,2100,Beatdown
-Giant_Sparky_Heal,4.3,54.1,2800,Beatdown
-Golem_BabyDragon,4.4,55.2,1600,Beatdown
-SkelKing_Hogs,3.5,52.5,2300,Midrange
-Recruits_Royal_Hogs,4.4,53.5,3500,Beatdown
-Egolem_InfDrag,4.1,50.9,3900,Beatdown
-Giant_Witch_Rage,4.0,48.8,5200,Beatdown
-Lava_Balloon_Miner,4.2,55.4,1800,Beatdown
-MK_Sparky_V2,4.6,51.4,2600,Beatdown
-Xbow_Knight_Tesla,3.0,46.9,1100,Cycle
-Miner_Rocket_Classic,3.0,50.5,6300,Cycle
-Hog_Mortar_Bait,3.2,51.5,5100,Cycle
-Lava_SkeletonDrag,4.1,53.9,1900,Beatdown
-Giant_Skel_Clone_V2,4.3,49.5,1600,Beatdown
-E_Giant_Lightning_V2,4.5,51.7,3100,Beatdown
-Log_Bait_Knight,3.3,52.3,3900,Midrange
-Splash_Yard_V2,3.5,52.1,6800,Midrange
-Pekka_Balloon_Mid,4.2,50.9,1700,Beatdown
-Golem_DarkPrince,4.4,53.6,1500,Beatdown
-Drill_Marcher_V2,2.9,52.9,4500,Cycle
-Hog_MiniPekka_V2,3.0,49.8,9100,Cycle
-RG_Lightning_V2,3.9,51.8,5900,Beatdown
-MK_WB_Miner,3.5,51.2,7800,Midrange
-Miner_Loon_V2,3.1,51.9,5600,Cycle
-LumberLoon_Classic,3.9,52.5,7200,Beatdown
-Giant_Graveyard_Classic,3.8,48.5,1300,Midrange
-Recruits_Hogs_Zappies,4.2,53.1,2100,Beatdown
-Egolem_Healer_V2,3.8,51.4,3800,Midrange
-Drill_Ghost_Mid,3.3,53.3,3100,Midrange
-Mortar_Hog_Control,3.2,50.7,5300,Cycle
-Prince_Bait_Rascals,3.5,52.2,2600,Midrange
-Hog_Musketeer_V2,2.9,50.2,10800,Cycle
-Lava_FlyMachine,4.3,53.9,2300,Beatdown
-Golem_NightWitch_V2,4.5,52.7,1800,Beatdown
-Giant_Electro_Mid,3.9,51.3,4400,Beatdown
-Pekka_Zappies_V2,4.1,50.4,5500,Beatdown
-Skel_Barrel_Classic,2.9,49.1,5800,Cycle
-Miner_Poison_Classic,3.0,51.7,6700,Cycle
-Royal_Hogs_Hunter_V2,3.2,52.4,4900,Cycle
-Three_M_Elite_Barbs,4.7,47.9,450,Beatdown
-Mirror_Bait_V2,2.6,47.2,2100,Cycle
-Pekka_Ghost_Spam,3.7,50.8,11500,Midrange
-Royal_Hogs_Ghost,3.5,51.5,13800,Midrange
-Queen_Piglets_Fireball,3.6,52.1,9500,Midrange
-MK_Miner_Control_V2,3.4,49.5,12500,Midrange
-Giant_Prince_Classic,3.9,51.5,7200,Beatdown
-Ram_Rider_Lightning_V2,3.5,51.1,5100,Midrange
-Mortar_Miner_Knight,3.3,52.9,5800,Midrange
-Golden_Knight_Drill_V2,3.5,53.5,3900,Midrange
-Pekka_Ram_Poison,3.7,50.2,7800,Midrange
-Giant_Prince_Mid,3.7,51.8,7200,Midrange
-Queen_Piglets_Classic,3.4,52.5,5800,Midrange
-Royal_Hogs_Bait,3.3,52.1,8700,Midrange
-MK_Miner_Control_Classic,3.6,50.1,10500,Midrange
-Golem_NightW_Minions,4.4,52.6,1800,Beatdown
-Giant_Electro_Prince,3.9,51.2,4300,Beatdown
-Pekka_Zappies_Classic,4.1,50.2,5600,Beatdown
-Skeleton_Bait_Mid,3.4,49.1,5800,Midrange
-Miner_Poison_IceW,3.1,51.6,6800,Cycle
-Royal_Hogs_Mid_V2,3.3,52.2,5100,Midrange
-Bridge_Spam_Minions,3.5,50.9,4200,Midrange
-Electro_Giant_Ghost,4.2,51.1,3300,Beatdown
-Lava_Loon_Miner_V2,4.1,54.5,2200,Beatdown
-Royal_Hogs_Recruits_Mid,3.8,52.8,4500,Midrange
-Golem_Tornado_Mid,4.3,53.2,1600,Beatdown
-Giant_Double_Prince_V2,3.8,51.5,5400,Midrange
-Pekka_Ram_Lightning_V2,4.0,51.8,6500,Beatdown
-Miner_Wall_Breakers_Classic,2.9,51.5,7800,Cycle
-Xbow_Tesla_V2,3.1,47.8,2400,Cycle
-Hog_Earthquake_Classic,3.0,50.4,8500,Cycle
-Balloon_Miner_Mid,3.4,52.5,5200,Midrange
-Lava_Classic_Mid,4.0,53.8,1900,Beatdown
-Royal_Giant_Ghost,3.9,51.2,6200,Midrange
-MK_Wall_Breakers_V2,3.4,51.5,7500,Midrange
-Drill_Poison_Mid,3.2,53.1,4100,Cycle
-Mortar_Miner_Poison_V2,3.3,52.5,5400,Midrange
-Pekka_Bridge_Spam_Classic_V2,3.8,50.7,11200,Midrange
-Royal_Hogs_Zappies_Classic,3.5,51.9,13900,Midrange
-Queen_Hogs_Classic,3.6,52.7,9200,Midrange
-MK_Miner_Bait_Classic,3.4,49.8,12500,Midrange
-Giant_Prince_Zap_Classic,3.9,51.4,7100,Beatdown
-Ram_Lightning_Classic,3.6,51.3,4900,Midrange
-Golden_Knight_Drill_Classic,3.4,53.8,3800,Midrange
-Pekka_Ram_Poison_Classic,3.8,50.4,7600,Midrange
-Giant_Double_Prince_Classic_V2,3.9,51.9,7100,Beatdown
-Queen_Piglets_Classic_V2,3.5,52.3,5600,Midrange
-Royal_Hogs_Bait_Classic,3.4,52.5,8400,Midrange
-MK_Miner_Control_Classic_V2,3.5,50.5,10200,Midrange
+Giant Graveyard Bowler,3.8,55.2,12450,Beatdown
+P.E.K.K.A Bridge Spam,3.9,54.1,11200,Midrange
+Lavaloon,4.0,56.5,8900,Beatdown
+Goblin Drill WB Cycle,2.9,53.4,10500,Cycle
+Hog Earthquake Firecracker,2.8,52.8,18000,Cycle
+X-Bow 3.0 Cycle,3.0,51.2,15000,Cycle
+Golem Night Witch Beatdown,4.3,55.9,7500,Beatdown
+RG Fisherman Hunter,3.0,52.1,9200,Cycle
+Miner Poison Control,3.0,51.8,11000,Cycle
+Mortar Skeleton King Bait,3.4,53.0,8400,Midrange
+P.E.K.K.A Ram Rider,3.8,52.5,6700,Midrange
+Lava Miner,4.1,54.8,7100,Beatdown
+Mega Knight Miner WB,3.3,51.5,14200,Midrange
+Hog 2.6 Cycle,2.6,50.5,22000,Cycle
+Splashyard (Ice Wiz Bowler),3.5,53.2,9800,Midrange
+Lumberloon Freeze,3.9,52.0,8100,Beatdown
+Elixir Golem Healer,3.6,54.0,5500,Beatdown
+Goblin Giant Sparky,3.8,51.9,6200,Beatdown
+3M Pump (Three Musketeers),3.9,50.1,4100,Midrange
+Classic Log Bait,3.3,49.8,19500,Midrange
+Deck_Name,Avg_Elixir,Winrate,Num_Battles,Category
+Giant Double Prince,3.4,53.1,8800,Beatdown
+Royal Hogs Archer Queen Cycle,2.9,52.4,14500,Cycle
+Miner Wall Breakers Magic Archer,2.8,51.9,16200,Cycle
+Golem Clone,4.0,54.5,4500,Beatdown
+Lava Clone,3.8,55.0,5100,Beatdown
+Electro Giant Lightning,4.1,52.2,7900,Beatdown
+P.E.K.K.A Bridge Spam (Minions),3.9,51.8,9500,Midrange
+Splashyard (Valkyrie),3.4,52.7,11200,Midrange
+RG Lightning,3.6,51.4,8600,Midrange
+Hog ExeNado (Executioner Tornado),3.3,50.9,13400,Midrange
+Mortar Miner Bait,3.1,52.6,9100,Cycle
+Sparky Executioner Tornado,4.0,51.1,5400,Beatdown
+Balloon Freeze Bowler,3.5,52.3,7200,Midrange
+X-Bow Pump (Icebow),3.5,50.4,10800,Midrange
+Miner Control (Inferno Tower),3.0,51.0,12500,Cycle
+Mega Knight Zap Bait,3.4,50.6,15500,Midrange
+Goblin Drill Bomber Cycle,2.8,53.5,11800,Cycle
+Lavaloon (Miner Variant),4.1,55.1,6800,Beatdown
+Giant Night Witch Beatdown,3.8,54.2,5900,Beatdown
+Elixir Golem Battle Healer (Rage),3.5,53.8,4800,Beatdown
+Hog Mortar Bait,3.1,51.7,10200,Cycle
+Royal Hogs Recruits,3.9,52.9,8300,Midrange
+P.E.K.K.A Double Prince,4.0,50.2,4100,Midrange
+Miner Mortar Poison,3.3,52.1,9700,Midrange
+Mega Knight Balloon,3.8,51.3,11400,Midrange
+Electro Giant Bowler,4.2,52.0,6500,Beatdown
+Golem Double Prince,4.4,53.4,3900,Beatdown
+Log Bait (Guards Variant),3.3,49.5,17000,Midrange
+RG Mother Witch,3.8,51.8,7600,Midrange
+Graveyard Freeze,3.6,52.5,6100,Midrange
+Hog Firecracker Earthquake,2.8,53.0,14800,Cycle
+Miner Poison (Tesla),2.9,51.2,13000,Cycle
+Lava Hound Flying Machine,4.0,54.6,5500,Beatdown
+Wall Breakers Cycle (Bomber),2.6,52.8,12200,Cycle
+Sparky Giant Beatdown,4.1,51.6,4700,Beatdown
+Three Musketeers Royal Hogs,4.1,50.8,3500,Midrange
+Goblin Giant Double Prince,3.9,52.2,5800,Midrange
+Mega Knight Ram Rider,3.9,50.7,9900,Midrange
+X-Bow Queen Cycle,3.1,51.1,11500,Cycle
+Balloon Miner Cycle,3.0,52.4,8900,Cycle
+P.E.K.K.A Ram Rider Lightning,4.0,51.8,8200,Midrange
+Lava Miner Valkyrie,4.1,54.1,6400,Beatdown
+Golem Night Witch Skeleton Dragons,4.2,55.3,5200,Beatdown
+Hog ExeNado Valkyrie,3.4,50.7,12100,Midrange
+Goblin Drill Magic Archer,2.9,52.8,11500,Cycle
+Mega Knight Skeleton Barrel Bait,3.3,51.1,14800,Midrange
+RG Zappies Hunter,3.4,51.9,8900,Midrange
+Splashyard (Skeleton King),3.5,53.6,9100,Midrange
+Lumberloon Bowler Freeze,3.8,51.5,7700,Beatdown
+Mortar Miner Poison (Musketeer),3.1,52.4,10300,Cycle
+X-Bow 3.0 (Knight Variant),3.0,50.6,13200,Cycle
+Miner Control (Wall Breakers),2.8,51.7,15100,Cycle
+Electro Giant Golden Knight,4.0,52.1,6900,Beatdown
+Giant Graveyard (Snowball),3.6,54.4,9400,Beatdown
+Hog Rider Firecracker (Tesla),2.9,51.3,16500,Cycle
+Log Bait (Prince Variant),3.5,49.9,11000,Midrange
+Mega Knight Bait (Miner),3.4,50.8,13700,Midrange
+P.E.K.K.A Bridge Spam (Magic Archer),3.9,52.0,10500,Midrange
+Royal Hogs Earthquake Cycle,2.8,53.1,12800,Cycle
+Balloon Miner (Bomb Tower),3.1,52.6,8400,Cycle
+Sparky Goblin Giant (Mini P.E.K.K.A),3.9,51.2,5600,Beatdown
+Lava Clone (Lumberjack),3.8,54.7,4900,Beatdown
+Elixir Golem Electro Dragon,3.6,53.9,4100,Beatdown
+Golem Pump (Elixir Collector),4.5,54.0,3800,Beatdown
+Hog Mortar (Goblin Gang),3.1,51.5,9600,Cycle
+Miner Poison (Inferno Tower),3.0,50.9,11200,Cycle
+Graveyard Freeze (Valkyrie),3.5,52.2,8500,Midrange
+RG Mother Witch (Ghost),3.7,51.7,7100,Midrange
+Goblin Drill Bomber (Wall Breakers),2.8,53.2,10100,Cycle
+Mega Knight Wall Breakers (Musketeer),3.3,51.4,12400,Midrange
+Three Musketeers Pump (Ice Golem),4.0,50.5,3200,Midrange
+X-Bow Pump (Valkyrie),3.6,50.1,9500,Midrange
+Lavaloon (Tombstone),4.1,55.8,8100,Beatdown
+Giant Double Prince (Miner),3.5,52.9,7300,Beatdown
+Hog 2.6 (Cannon Variant),2.6,50.3,19800,Cycle
+Splashyard (Baby Dragon),3.5,53.0,10400,Midrange
+Miner Control (Bats),2.8,52.1,13900,Cycle
+Electro Giant Bowler (Lightning),4.3,51.8,6000,Beatdown
+P.E.K.K.A Zappies,3.8,51.0,7500,Midrange
+Log Bait (Inferno Tower),3.3,49.6,18200,Midrange
+Royal Hogs Zappies Recruits,3.9,52.5,11200,Midrange
+Miner Wall Breakers (Valkyrie),2.9,51.8,14300,Cycle
+Lava Hound Balloon (Inferno Dragon),4.1,54.5,7800,Beatdown
+Golem Clone (Night Witch),4.0,54.2,4600,Beatdown
+Hog Earthquake (Delivery),2.8,51.1,16800,Cycle
+Goblin Drill (Inferno Tower),3.1,53.0,10500,Cycle
+Mega Knight Ram Rider (Lightning),4.2,50.4,8900,Midrange
+P.E.K.K.A Bridge Spam (Bandit),3.9,51.5,10200,Midrange
+Splashyard (Tornado),3.4,52.8,9500,Midrange
+X-Bow 3.0 (Archers Variant),3.0,50.2,12500,Cycle
+Balloon Freeze (Lumberjack),3.5,51.9,7400,Midrange
+Mortar Skeleton King Bait (Dart Goblin),3.3,52.3,8800,Midrange
+Miner Poison (Delivery),2.9,51.0,13400,Cycle
+RG Fisherman (Zappies),3.4,51.6,8100,Midrange
+Giant Graveyard (Night Witch),3.8,53.9,9200,Beatdown
+Hog 2.6 (Ice Golem Variant),2.6,50.0,21000,Cycle
+Electro Giant Lightning (Bomber),4.0,52.0,6700,Beatdown
+Log Bait (Tesla Variant),3.3,49.4,17500,Midrange
+Sparky Giant (Rage),4.0,51.4,5200,Beatdown
+Elixir Golem (Battle Healer),3.5,53.5,4500,Beatdown
+Mega Knight Balloon (Miner),3.8,51.2,10800,Midrange
+Lavaloon (Skeleton Dragons),4.1,55.0,7500,Beatdown
+Goblin Giant Double Prince (Zap),3.9,52.1,5900,Midrange
+Hog Mortar Bait (Musketeer),3.1,51.4,9900,Cycle
+Miner Wall Breakers Magic Archer (Tornado),2.9,51.7,15500,Cycle
+Royal Hogs Archer Queen (Cannon),2.9,52.2,13800,Cycle
+Golem Double Prince (Baby Dragon),4.4,53.1,4100,Beatdown
+P.E.K.K.A Double Prince (Electro Wizard),4.0,50.1,4300,Midrange
+Splashyard (Bowler),3.5,53.3,9900,Midrange
+X-Bow Queen (Ice Spirit),3.1,50.8,11100,Cycle
+Giant Night Witch (Miner),3.7,53.8,6100,Beatdown
+Lava Miner (Skeleton Dragons),4.0,54.3,6600,Beatdown
+RG Lightning (Mother Witch),3.8,51.5,7900,Midrange
+Hog ExeNado (Ice Spirit),3.3,50.6,12800,Midrange
+Mega Knight Wall Breakers (Bandit),3.3,51.2,13100,Midrange
+Goblin Drill Bomber Cycle (Knight),2.8,53.1,11000,Cycle
+Miner Control (Bomb Tower),3.0,51.1,12200,Cycle
+Electro Giant Bowler (Tornado),4.2,51.9,6300,Beatdown
+Three Musketeers Pump (Ghost),4.0,50.4,3400,Midrange
+Log Bait (Guards Variant 2),3.3,49.3,16500,Midrange
+Sparky Goblin Giant (Dark Prince),3.9,51.3,5700,Beatdown
+Hog Earthquake (Mighty Miner),2.8,51.6,14200,Cycle
+Lava Clone (Flying Machine),3.8,54.6,5100,Beatdown
+Miner Poison Control (Valkyrie),3.0,51.0,11500,Cycle
+X-Bow 3.0 (Ice Golem Variant),3.0,50.3,12800,Cycle
+Mega Knight Zap Bait (Inferno Dragon),3.5,50.8,13400,Midrange
+Golem Night Witch (Lightning),4.3,55.1,4900,Beatdown
+P.E.K.K.A Ram Rider (Ghost),3.9,51.7,8500,Midrange
+Splashyard (Ice Wizard),3.4,52.9,9600,Midrange
+RG Fisherman Hunter (Ghost),3.1,51.8,8800,Midrange
+Giant Double Prince (Dark Prince),3.5,53.0,7400,Beatdown
+Goblin Drill Wall Breakers (Tornado),2.9,52.7,10800,Cycle
+Log Bait (Valkyrie Variant),3.4,49.7,15500,Midrange
+Balloon Miner (Inferno Tower),3.1,52.3,8700,Cycle
+Electro Giant Golden Knight (Lightning),4.1,52.0,6800,Beatdown
+Mortar Skeleton King Bait (Miner),3.3,52.5,8600,Midrange
+Royal Hogs Archer Queen Cycle (Delivery),2.9,52.1,13500,Cycle
+P.E.K.K.A Bridge Spam (Royal Ghost),3.9,51.9,10600,Midrange
+Lavaloon (Mega Minion),4.1,55.2,7700,Beatdown
+Elixir Golem Electro Dragon (Rage),3.6,53.7,4300,Beatdown
+Hog Firecracker (Bomb Tower),2.9,51.4,15800,Cycle
+Miner Wall Breakers Magic Archer (Bomb Tower),2.9,51.6,14900,Cycle
+Giant Graveyard (Bowler Variant),3.8,54.1,9100,Beatdown
+Mega Knight Balloon (Inferno Dragon),3.8,51.1,10600,Midrange
+Golem Clone (Skeleton Dragons),4.0,54.4,4700,Beatdown
+X-Bow Pump (Tesla Variant),3.5,50.2,9700,Midrange
+Splashyard (Skeleton King Variant),3.5,53.5,9300,Midrange
+Goblin Drill Bomber Cycle (Tesla),2.8,53.0,10900,Cycle
+RG Zappies (Mother Witch),3.6,51.6,8300,Midrange
+Hog ExeNado (Goblins),3.3,50.5,12500,Midrange
+Lava Miner (Inferno Dragon),4.1,54.4,6700,Beatdown
+Three Musketeers Pump (Bandit),4.0,50.3,3300,Midrange
+Miner Control (Tesla Variant),3.0,51.2,12100,Cycle
+Sparky Giant Beatdown (Zap),4.1,51.5,5100,Beatdown
+Mega Knight Ram Rider (Bandit),4.1,50.6,9100,Midrange
+Log Bait (Princess Variant),3.3,49.2,17200,Midrange
+Hog 2.6 Cycle (Skeletons),2.6,50.1,20500,Cycle
+Electro Giant Bowler (Dark Prince),4.2,51.7,6200,Beatdown
+P.E.K.K.A Double Prince (Zap),4.0,50.0,4200,Midrange
+Balloon Freeze Bowler (Lumberjack),3.8,51.6,7600,Beatdown
+Giant Graveyard (Skeleton Dragons),3.8,53.8,8800,Beatdown
+Hog Firecracker (Earthquake Variant),2.9,51.5,13900,Cycle
+Lavaloon (Miner Poison),4.1,54.8,7200,Beatdown
+Goblin Drill Wall Breakers (Magic Archer),2.9,52.6,10400,Cycle
+Mega Knight Zap Bait (Skeleton Barrel),3.4,50.7,12900,Midrange
+P.E.K.K.A Bridge Spam (Poison Variant),3.9,51.8,10100,Midrange
+Splashyard (Tombstone),3.4,52.7,9400,Midrange
+X-Bow 3.0 (Log Variant),3.0,50.4,12200,Cycle
+RG Fisherman Hunter (Electro Spirit),3.0,51.7,8600,Cycle
+Mortar Skeleton King Bait (Spear Goblins),3.3,52.4,8400,Midrange
+Miner Poison Control (Bomb Tower),3.0,51.1,11800,Cycle
+Golem Night Witch (Dark Prince),4.3,54.9,4800,Beatdown
+Royal Hogs Zappies (Flying Machine),3.9,52.3,10900,Midrange
+Lava Clone (Skeleton Dragons),3.8,54.5,5000,Beatdown
+Hog Earthquake (Ice Spirit Variant),2.8,51.0,16200,Cycle
+Balloon Freeze (Bowler Variant),3.5,51.7,7500,Midrange
+Electro Giant Golden Knight (Tornado),4.0,51.9,6500,Beatdown
+Giant Double Prince (Zap Variant),3.5,52.8,7200,Beatdown
+Mega Knight Balloon (Musketeer),3.8,51.0,10400,Midrange
+Log Bait (Guards Tesla Variant),3.3,49.5,15800,Midrange
+Sparky Goblin Giant (Rage Variant),3.9,51.1,5500,Beatdown
+Miner Wall Breakers (Magic Archer Bomb Tower),2.9,51.5,14600,Cycle
+Elixir Golem Electro Dragon (Tornado),3.6,53.6,4200,Beatdown
+P.E.K.K.A Ram Rider (Bandit Variant),3.9,51.6,8300,Midrange
+Goblin Drill Bomber Cycle (Fireball),2.8,52.9,10600,Cycle
+Splashyard (Skeleton King Tornado),3.5,53.4,9100,Midrange
+Hog ExeNado (Valkyrie Variant),3.4,50.4,12300,Midrange
+RG Zappies (Fisherman),3.6,51.5,8100,Midrange
+Lava Miner (Flying Machine),4.1,54.2,6500,Beatdown
+Three Musketeers Pump (Royal Ghost),4.0,50.2,3200,Midrange
+X-Bow Pump (Knight Tesla),3.5,50.1,9500,Midrange
+Golem Clone (Lumberjack),4.0,54.3,4600,Beatdown
+Mega Knight Ram Rider (Lightning Variant),4.2,50.5,8800,Midrange
+Miner Control (Inferno Tower Variant),3.0,51.0,11900,Cycle
+Sparky Giant Beatdown (Miner),4.1,51.4,5000,Beatdown
+Log Bait (Princess Inferno),3.3,49.1,16800,Midrange
+Hog 2.6 Cycle (Log),2.6,50.0,20100,Cycle
+Electro Giant Bowler (Lightning Variant),4.2,51.6,6100,Beatdown
+P.E.K.K.A Double Prince (Poison),4.0,49.9,4100,Midrange
+Balloon Miner (Bomb Tower Variant),3.1,52.2,8500,Cycle
+Giant Graveyard (Skeleton Army),3.8,53.6,8500,Beatdown
+Hog Firecracker (Tesla Variant),2.9,51.3,13600,Cycle
+Lavaloon (Tombstone Poison),4.1,54.6,7000,Beatdown
+Goblin Drill Wall Breakers (Fireball),2.9,52.4,10200,Cycle
+Mega Knight Zap Bait (Bats),3.4,50.6,12600,Midrange
+P.E.K.K.A Bridge Spam (Zap Variant),3.9,51.7,9900,Midrange
+Splashyard (Baby Dragon Poison),3.5,52.6,9200,Midrange
+X-Bow 3.0 (Fireball Variant),3.0,50.3,11900,Cycle
+RG Fisherman Hunter (Skeletons),3.0,51.5,8400,Cycle
+Mortar Skeleton King Bait (Poison),3.3,52.2,8200,Midrange
+Miner Poison Control (Knight),3.0,50.9,11500,Cycle
+Golem Night Witch (Baby Dragon),4.3,54.7,4700,Beatdown
+Royal Hogs Zappies (Mother Witch),3.9,52.1,10600,Midrange
+Lava Clone (Skeleton Army),3.8,54.3,4900,Beatdown
+Hog Earthquake (Skeletons),2.8,50.9,15900,Cycle
+Balloon Freeze (Inferno Dragon),3.5,51.6,7300,Midrange
+Electro Giant Golden Knight (Bomber),4.0,51.8,6400,Beatdown
+Giant Double Prince (Poison),3.5,52.6,7000,Beatdown
+Mega Knight Balloon (Bats),3.8,50.9,10200,Midrange
+Log Bait (Guards Variant 3),3.3,49.4,15500,Midrange
+Sparky Goblin Giant (Zap Variant),3.9,51.0,5400,Beatdown
+Miner Wall Breakers (Knight),2.9,51.4,14300,Cycle
+Elixir Golem Electro Dragon (Inferno),3.6,53.4,4100,Beatdown
+P.E.K.K.A Ram Rider (Snowball),3.9,51.4,8100,Midrange
+Goblin Drill Bomber Cycle (Log),2.8,52.7,10400,Cycle
+Splashyard (Valkyrie Tornado),3.4,53.2,8900,Midrange
+Hog ExeNado (Knight),3.3,50.3,12000,Midrange
+RG Zappies (Hunter Variant),3.6,51.3,7900,Midrange
+Lava Miner (Zap Variant),4.1,54.0,6300,Beatdown
+Three Musketeers Pump (Heal Spirit),4.0,50.1,3100,Midrange
+X-Bow Pump (Log Variant),3.5,50.0,9300,Midrange
+Golem Clone (Bats),4.0,54.1,4500,Beatdown
+Mega Knight Ram Rider (Snowball),4.2,50.3,8600,Midrange
+Miner Control (Poison Tesla),3.0,50.8,11700,Cycle
+Sparky Giant Beatdown (Dark Prince),4.1,51.2,4900,Beatdown
+Log Bait (Princess Valkyrie),3.4,49.0,16500,Midrange
+Hog 2.6 Cycle (Ice Spirit),2.6,49.9,19800,Cycle
+Electro Giant Bowler (Zap),4.2,51.5,5900,Beatdown
+P.E.K.K.A Double Prince (Log),4.0,49.8,4000,Midrange
+Balloon Miner (Inferno Dragon),3.1,52.0,8300,Cycle
+Giant Graveyard (Bats),3.7,53.5,8300,Beatdown
+Hog Firecracker (Log Variant),2.9,51.2,13300,Cycle
+Lavaloon (Guards),4.1,54.4,6800,Beatdown
+Goblin Drill Wall Breakers (Log),2.9,52.3,10000,Cycle
+Mega Knight Zap Bait (Spear Goblins),3.4,50.4,12400,Midrange
+P.E.K.K.A Bridge Spam (Ghost Variant),3.9,51.5,9700,Midrange
+Splashyard (Ice Wizard Tornado),3.5,52.4,9000,Midrange
+X-Bow 3.0 (Archers Log),3.0,50.1,11700,Cycle
+RG Fisherman Hunter (Log),3.0,51.4,8200,Cycle
+Mortar Skeleton King Bait (Log),3.3,52.0,8000,Midrange
+Miner Poison Control (Log),3.0,50.7,11300,Cycle
+Golem Night Witch (Tornado Variant),4.3,54.5,4600,Beatdown
+Royal Hogs Zappies (Ghost),3.9,51.9,10400,Midrange
+Lava Clone (Bats Variant),3.8,54.1,4800,Beatdown
+Hog Earthquake (Log),2.8,50.7,15600,Cycle
+Balloon Freeze (Tornado),3.5,51.4,7100,Midrange
+Electro Giant Golden Knight (Log),4.0,51.6,6200,Beatdown
+Giant Double Prince (Log Variant),3.5,52.4,6800,Beatdown
+Mega Knight Balloon (Zap),3.8,50.7,10000,Midrange
+Log Bait (Guards Log),3.3,49.3,15200,Midrange
+Sparky Goblin Giant (Log),3.9,50.8,5300,Beatdown
+Miner Wall Breakers (Log),2.9,51.2,14000,Cycle
+Elixir Golem Electro Dragon (Zap),3.6,53.2,4000,Beatdown
+P.E.K.K.A Ram Rider (Log Variant),3.9,51.2,7900,Midrange
+Goblin Drill Bomber Cycle (Zap),2.8,52.5,10200,Cycle
+Splashyard (Valkyrie Log),3.4,53.0,8700,Midrange
+Hog ExeNado (Log Variant),3.3,50.1,11800,Midrange
+RG Zappies (Log),3.6,51.1,7700,Midrange
+Lava Miner (Log Variant),4.1,53.8,6100,Beatdown
+Three Musketeers Pump (Log),4.0,49.9,3000,Midrange
+X-Bow Pump (Zap Variant),3.5,49.8,9100,Midrange
+Golem Clone (Zap),4.0,53.9,4400,Beatdown
+Mega Knight Ram Rider (Log),4.2,50.1,8400,Midrange
+Miner Control (Poison Log),3.0,50.6,11500,Cycle
+Sparky Giant Beatdown (Log),4.1,51.0,4800,Beatdown
+Log Bait (Princess Zap),3.3,48.9,16200,Midrange
+Hog 2.6 Cycle (Zap Variant),2.6,49.7,19500,Cycle
+Electro Giant Bowler (Log),4.2,51.3,5700,Beatdown
+P.E.K.K.A Double Prince (Zap Variant),4.0,49.6,3900,Midrange
+Balloon Miner (Zap Variant),3.1,51.8,8100,Cycle
+Giant Graveyard (Zap),3.7,53.3,8100,Beatdown
+Hog Firecracker (Zap Variant),2.9,51.0,13000,Cycle
+Lavaloon (Zap Variant),4.1,54.2,6600,Beatdown
+Goblin Drill Wall Breakers (Zap),2.9,52.1,9800,Cycle
+Mega Knight Zap Bait (Zap Variant),3.4,50.2,12200,Midrange
+P.E.K.K.A Bridge Spam (Minions Zap),3.9,51.3,9500,Midrange
+Splashyard (Ice Wizard Zap),3.5,52.2,8800,Midrange
+X-Bow 3.0 (Archers Zap),3.0,49.9,11500,Cycle
+RG Fisherman Hunter (Zap),3.0,51.2,8000,Cycle
+Mortar Skeleton King Bait (Zap),3.3,51.8,7800,Midrange
+Miner Poison Control (Zap Variant),3.0,50.5,11100,Cycle
+Golem Night Witch (Zap Variant),4.3,54.3,4500,Beatdown
+Royal Hogs Zappies (Zap Variant),3.9,51.7,10200,Midrange
+Lava Clone (Zap Variant),3.8,53.9,4700,Beatdown
+Hog Earthquake (Zap Variant),2.8,50.5,15300,Cycle
+Balloon Freeze (Zap Variant),3.5,51.2,6900,Midrange
+Electro Giant Golden Knight (Zap Variant),4.0,51.4,6000,Beatdown
+Giant Double Prince (Zap 2),3.5,52.2,6600,Beatdown
+Mega Knight Balloon (Zap 2),3.8,50.5,9800,Midrange
+Log Bait (Guards Zap),3.3,49.1,14900,Midrange
+Sparky Goblin Giant (Ewiz),3.9,50.7,5200,Beatdown
+Miner Wall Breakers (Ewiz),2.9,51.0,13800,Cycle
+Elixir Golem Electro Dragon (Heal),3.6,53.0,3900,Beatdown
+P.E.K.K.A Ram Rider (Ewiz),3.9,51.0,7700,Midrange
+Goblin Drill Bomber Cycle (Ewiz),2.8,52.3,10000,Cycle
+Splashyard (Valkyrie Ewiz),3.4,52.8,8500,Midrange
+Hog ExeNado (Ewiz),3.3,49.9,11600,Midrange
+RG Zappies (Ewiz),3.6,50.9,7500,Midrange
+Lava Miner (Ewiz),4.1,53.6,5900,Beatdown
+Three Musketeers Pump (Ewiz),4.0,49.7,2900,Midrange
+X-Bow Pump (Ewiz),3.5,49.6,8900,Midrange
+Golem Clone (Ewiz),4.0,53.7,4300,Beatdown
+Mega Knight Ram Rider (Ewiz),4.2,49.9,8200,Midrange
+Miner Control (Ewiz),3.0,50.4,11300,Cycle
+Sparky Giant Beatdown (Ewiz),4.1,50.8,4700,Beatdown
+Log Bait (Princess Ewiz),3.3,48.7,16000,Midrange
+Hog 2.6 Cycle (Ewiz),2.6,49.5,19300,Cycle
+Electro Giant Bowler (Ewiz),4.2,51.1,5500,Beatdown
+P.E.K.K.A Double Prince (Ewiz),4.0,49.4,3800,Midrange
+Balloon Miner (Ewiz),3.1,51.6,7900,Cycle
+Giant Graveyard (Ewiz),3.7,53.1,7900,Beatdown
+Hog Firecracker (Ewiz),2.9,50.8,12800,Cycle
+Lavaloon (Ewiz),4.1,54.0,6400,Beatdown
+Goblin Drill Wall Breakers (Ewiz),2.9,51.9,9600,Cycle
+Mega Knight Zap Bait (Ewiz),3.4,50.0,12000,Midrange
+P.E.K.K.A Bridge Spam (Ghost Ewiz),3.9,51.1,9300,Midrange
+Splashyard (Ice Wizard Ewiz),3.5,52.0,8600,Midrange
+X-Bow 3.0 (Archers Ewiz),3.0,49.7,11300,Cycle
+RG Fisherman Hunter (Ewiz),3.0,51.0,7800,Cycle
+Mortar Skeleton King Bait (Ewiz),3.3,51.6,7600,Midrange
+Miner Poison Control (Ewiz),3.0,50.3,10900,Cycle
+Golem Night Witch (Ewiz),4.3,54.1,4400,Beatdown
+Royal Hogs Zappies (Ewiz),3.9,51.5,10000,Midrange
+Lava Clone (Ewiz),3.8,53.7,4600,Beatdown
+Hog Earthquake (Ewiz),2.8,50.3,15100,Cycle
+Balloon Freeze (Ewiz),3.5,51.0,6700,Midrange
+Electro Giant Golden Knight (Ewiz),4.0,51.2,5800,Beatdown
+Giant Double Prince (Ewiz),3.5,52.0,6400,Beatdown
+Mega Knight Balloon (Ewiz),3.8,50.3,9600,Midrange
+Log Bait (Guards Ewiz),3.3,48.9,14700,Midrange
+Sparky Goblin Giant (Bandit),3.9,50.6,5100,Beatdown
+Miner Wall Breakers (Bandit),2.9,50.9,13700,Cycle
+Elixir Golem Electro Dragon (Bandit),3.6,52.9,3800,Beatdown
+P.E.K.K.A Ram Rider (Bandit 2),3.9,50.9,7600,Midrange
+Goblin Drill Bomber Cycle (Bandit),2.8,52.2,9900,Cycle
+Splashyard (Valkyrie Bandit),3.4,52.7,8400,Midrange
+Hog ExeNado (Bandit),3.3,49.8,11500,Midrange
+RG Zappies (Bandit),3.6,50.8,7400,Midrange
+Lava Miner (Bandit),4.1,53.5,5800,Beatdown
+Three Musketeers Pump (Bandit 2),4.0,49.6,2800,Midrange
+X-Bow Pump (Bandit),3.5,49.5,8800,Midrange
+Golem Clone (Bandit),4.0,53.6,4200,Beatdown
+Mega Knight Ram Rider (Bandit 2),4.2,49.8,8100,Midrange
+Miner Control (Bandit),3.0,50.3,11200,Cycle
+Sparky Giant Beatdown (Bandit),4.1,50.7,4600,Beatdown
+Log Bait (Princess Bandit),3.3,48.6,15900,Midrange
+Hog 2.6 Cycle (Bandit),2.6,49.4,19200,Cycle
+Electro Giant Bowler (Bandit),4.2,51.0,5400,Beatdown
+P.E.K.K.A Double Prince (Bandit),4.0,49.3,3700,Midrange
+Balloon Miner (Bandit),3.1,51.5,7800,Cycle
+Giant Graveyard (Bandit),3.7,53.0,7800,Beatdown
+Hog Firecracker (Bandit),2.9,50.7,12700,Cycle
+Lavaloon (Bandit),4.1,53.9,6300,Beatdown
+Goblin Drill Wall Breakers (Bandit),2.9,51.8,9500,Cycle
+Mega Knight Zap Bait (Bandit),3.4,49.9,11900,Midrange
+P.E.K.K.A Bridge Spam (Ghost Bandit),3.9,51.0,9200,Midrange
+Splashyard (Ice Wizard Bandit),3.5,51.9,8500,Midrange
+X-Bow 3.0 (Archers Bandit),3.0,49.6,11200,Cycle
+RG Fisherman Hunter (Bandit),3.0,50.9,7700,Cycle
+Mortar Skeleton King Bait (Bandit),3.3,51.5,7500,Midrange
+Miner Poison Control (Bandit),3.0,50.2,10800,Cycle
+Golem Night Witch (Bandit),4.3,54.0,4300,Beatdown
+Royal Hogs Zappies (Bandit),3.9,51.4,9900,Midrange
+Lava Clone (Bandit),3.8,53.6,4500,Beatdown
+Hog Earthquake (Bandit),2.8,50.2,15000,Cycle
+Balloon Freeze (Bandit),3.5,50.9,6600,Midrange
+Electro Giant Golden Knight (Bandit),4.0,51.1,5700,Beatdown
+Giant Double Prince (Bandit),3.5,51.9,6300,Beatdown
+Mega Knight Balloon (Bandit),3.8,50.2,9500,Midrange
+Log Bait (Guards Bandit),3.3,48.8,14600,Midrange
+Sparky Goblin Giant (Ice Golem),3.9,50.5,5000,Beatdown
+Miner Wall Breakers (Ice Golem),2.9,50.8,13600,Cycle
+Elixir Golem Electro Dragon (Ice Golem),3.6,52.8,3700,Beatdown
+P.E.K.K.A Ram Rider (Ice Golem),3.9,50.8,7500,Midrange
+Goblin Drill Bomber Cycle (Ice Golem),2.8,52.1,9800,Cycle
+Splashyard (Valkyrie Ice Golem),3.4,52.6,8300,Midrange
+Hog ExeNado (Ice Golem),3.3,49.7,11400,Midrange
+RG Zappies (Ice Golem),3.6,50.7,7300,Midrange
+Lava Miner (Ice Golem),4.1,53.4,5700,Beatdown
+Three Musketeers Pump (Ice Golem 2),4.0,49.5,2700,Midrange
+X-Bow Pump (Ice Golem),3.5,49.4,8700,Midrange
+Golem Clone (Ice Golem),4.0,53.5,4100,Beatdown
+Mega Knight Ram Rider (Ice Golem),4.2,49.7,8000,Midrange
+Miner Control (Ice Golem),3.0,50.2,11100,Cycle
+Sparky Giant Beatdown (Ice Golem),4.1,50.6,4500,Beatdown
+Log Bait (Princess Ice Golem),3.3,48.5,15800,Midrange
+Hog 2.6 Cycle (Ice Golem 2),2.6,49.3,19100,Cycle
+Electro Giant Bowler (Ice Golem),4.2,50.9,5300,Beatdown
+P.E.K.K.A Double Prince (Ice Golem),4.0,49.2,3600,Midrange
+Balloon Miner (Ice Golem),3.1,51.4,7700,Cycle
+Giant Graveyard (Fire Spirit),3.7,52.9,7700,Beatdown
+Hog Firecracker (Fire Spirit),2.8,50.6,12600,Cycle
+Lavaloon (Fire Spirit),4.1,53.8,6200,Beatdown
+Goblin Drill Wall Breakers (Fire Spirit),2.9,51.7,9400,Cycle
+Mega Knight Zap Bait (Fire Spirit),3.4,49.8,11800,Midrange
+P.E.K.K.A Bridge Spam (Fire Spirit),3.9,50.9,9100,Midrange
+Splashyard (Fire Spirit),3.4,51.8,8400,Midrange
+X-Bow 3.0 (Fire Spirit),2.9,49.5,11100,Cycle
+RG Fisherman Hunter (Fire Spirit),3.0,50.8,7600,Cycle
+Mortar Skeleton King Bait (Fire Spirit),3.3,51.4,7400,Midrange
+Miner Poison Control (Fire Spirit),2.9,50.1,10700,Cycle
+Golem Night Witch (Fire Spirit),4.2,53.9,4200,Beatdown
+Royal Hogs Zappies (Fire Spirit),3.9,51.3,9800,Midrange
+Lava Clone (Fire Spirit),3.8,53.5,4400,Beatdown
+Hog Earthquake (Fire Spirit),2.8,50.1,14900,Cycle
+Balloon Freeze (Fire Spirit),3.5,50.8,6500,Midrange
+Electro Giant Golden Knight (Fire Spirit),4.0,51.0,5600,Beatdown
+Giant Double Prince (Fire Spirit),3.5,51.8,6200,Beatdown
+Mega Knight Balloon (Fire Spirit),3.8,50.1,9400,Midrange
+Log Bait (Fire Spirit),3.3,48.7,14500,Midrange
+Giant Graveyard (Heal Spirit),3.7,52.8,7600,Beatdown
+Hog Firecracker (Heal Spirit),2.8,50.5,12500,Cycle
+Lavaloon (Heal Spirit),4.1,53.7,6100,Beatdown
+Goblin Drill Wall Breakers (Heal Spirit),2.9,51.6,9300,Cycle
+Mega Knight Zap Bait (Heal Spirit),3.4,49.7,11700,Midrange
+P.E.K.K.A Bridge Spam (Heal Spirit),3.9,50.8,9000,Midrange
+Splashyard (Heal Spirit),3.4,51.7,8300,Midrange
+X-Bow 3.0 (Heal Spirit),2.9,49.4,11000,Cycle
+RG Fisherman Hunter (Heal Spirit),3.0,50.7,7500,Cycle
+Mortar Skeleton King Bait (Heal Spirit),3.3,51.3,7300,Midrange
+Miner Poison Control (Heal Spirit),2.9,50.0,10600,Cycle
+Golem Night Witch (Heal Spirit),4.2,53.8,4100,Beatdown
+Royal Hogs Zappies (Heal Spirit),3.9,51.2,9700,Midrange
+Lava Clone (Heal Spirit),3.8,53.4,4300,Beatdown
+Hog Earthquake (Heal Spirit),2.8,50.0,14800,Cycle
+Balloon Freeze (Heal Spirit),3.5,50.7,6400,Midrange
+Electro Giant Golden Knight (Heal Spirit),4.0,50.9,5500,Beatdown
+Giant Double Prince (Heal Spirit),3.5,51.7,6100,Beatdown
+Mega Knight Balloon (Heal Spirit),3.8,50.0,9300,Midrange
+Log Bait (Heal Spirit),3.3,48.6,14400,Midrange
+Giant Graveyard (Goblins),3.7,52.7,7500,Beatdown
+Hog Firecracker (Goblins),2.8,50.4,12400,Cycle
+Lavaloon (Goblins),4.1,53.6,6000,Beatdown
+Goblin Drill Wall Breakers (Goblins),2.9,51.5,9200,Cycle
+Mega Knight Zap Bait (Goblins),3.4,49.6,11600,Midrange
+P.E.K.K.A Bridge Spam (Goblins),3.9,50.7,8900,Midrange
+Splashyard (Goblins),3.4,51.6,8200,Midrange
+X-Bow 3.0 (Goblins),2.9,49.3,10900,Cycle
+RG Fisherman Hunter (Goblins),3.0,50.6,7400,Cycle
+Mortar Skeleton King Bait (Goblins),3.3,51.2,7200,Midrange
+Miner Poison Control (Goblins),2.9,49.9,10500,Cycle
+Golem Night Witch (Goblins),4.2,53.7,4000,Beatdown
+Royal Hogs Zappies (Goblins),3.9,51.1,9600,Midrange
+Lava Clone (Goblins),3.8,53.3,4200,Beatdown
+Hog Earthquake (Goblins),2.8,49.9,14700,Cycle
+Balloon Freeze (Goblins),3.5,50.6,6300,Midrange
+Electro Giant Golden Knight (Goblins),4.0,50.8,5400,Beatdown
+Giant Double Prince (Goblins),3.5,51.6,6000,Beatdown
+Mega Knight Balloon (Goblins),3.8,49.9,9200,Midrange
+Log Bait (Goblins),3.3,48.5,14300,Midrange
+Giant Graveyard (Spear Goblins),3.7,52.6,7400,Beatdown
+Hog Firecracker (Spear Goblins),2.8,50.3,12300,Cycle
+Lavaloon (Spear Goblins),4.1,53.5,5900,Beatdown
+Goblin Drill Wall Breakers (Spear Goblins),2.9,51.4,9100,Cycle
+Mega Knight Zap Bait (Spear Goblins),3.4,49.5,11500,Midrange
+P.E.K.K.A Bridge Spam (Spear Goblins),3.9,50.6,8800,Midrange
+Splashyard (Spear Goblins),3.4,51.5,8100,Midrange
+X-Bow 3.0 (Spear Goblins),2.9,49.2,10800,Cycle
+RG Fisherman Hunter (Spear Goblins),3.0,50.5,7300,Cycle
+Mortar Skeleton King Bait (Spear Goblins),3.3,51.1,7100,Midrange
+Miner Poison Control (Spear Goblins),2.9,49.8,10400,Cycle
+Golem Night Witch (Spear Goblins),4.2,53.6,3900,Beatdown
+Royal Hogs Zappies (Spear Goblins),3.9,51.0,9500,Midrange
+Lava Clone (Spear Goblins),3.8,53.2,4100,Beatdown
+Hog Earthquake (Spear Goblins),2.8,49.8,14600,Cycle
+Balloon Freeze (Spear Goblins),3.5,50.5,6200,Midrange
+Electro Giant Golden Knight (Spear Goblins),4.0,50.7,5300,Beatdown
+Giant Double Prince (Spear Goblins),3.5,51.5,5900,Beatdown
+Mega Knight Balloon (Spear Goblins),3.8,49.8,9100,Midrange
+Log Bait (Spear Goblins),3.3,48.4,14200,Midrange
