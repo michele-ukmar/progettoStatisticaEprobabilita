@@ -3,8 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+from pathlib import Path
 
 COLONNE_OBBLIGATORIE = {"Categoria", "Win_Rate", "Costo_Elisir", "Partite"}
+OUTPUT_DIR = Path("grafici")
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+
+def percorso_output(nome_file):
+    return OUTPUT_DIR / nome_file
 
 
 def carica_dataset(nome_file):
@@ -190,8 +197,9 @@ def grafico_top_5_combinato(df):
               bbox_to_anchor=(0.5, -0.08), frameon=True)
     
     plt.subplots_adjust(bottom=0.18, left=0.08, right=0.92)
-    fig.savefig('grafico_7_top5_combinato.png', dpi=150, bbox_inches='tight', facecolor='#f8f9fa')
-    print("[OK] Grafico combinato Top 10 mazzi (assi sincronizzati) salvato come 'grafico_7_top5_combinato.png'")
+    output_file = percorso_output('grafico_7_top5_combinato.png')
+    fig.savefig(output_file, dpi=150, bbox_inches='tight', facecolor='#f8f9fa')
+    print(f"[OK] Grafico combinato Top 10 mazzi (assi sincronizzati) salvato in '{output_file}'")
     plt.close(fig)
 
 def mostra_grafici(df):
@@ -254,8 +262,9 @@ def mostra_grafici(df):
     plt.subplots_adjust(top=0.93, bottom=0.08, left=0.08, right=0.93, hspace=0.30, wspace=0.28)
     sns.despine()
     print("\n[INFO] Generazione dashboard con box plot...")
-    plt.savefig('dashboard_analisi.png', dpi=150, bbox_inches='tight')
-    print("[OK] Dashboard salvato come 'dashboard_analisi.png'")
+    dashboard_file = percorso_output('dashboard_analisi.png')
+    plt.savefig(dashboard_file, dpi=150, bbox_inches='tight')
+    print(f"[OK] Dashboard salvato in '{dashboard_file}'")
     plt.close(fig)
 
     fig1, ax1 = plt.subplots(figsize=(9, 7))
@@ -269,7 +278,7 @@ def mostra_grafici(df):
     ax1.set_ylabel('Win Rate %', fontsize=10)
     sns.despine()
     fig1.tight_layout()
-    fig1.savefig('grafico_1_costo_vs_win_rate.png', dpi=150, bbox_inches='tight')
+    fig1.savefig(percorso_output('grafico_1_costo_vs_win_rate.png'), dpi=150, bbox_inches='tight')
     plt.close(fig1)
 
     fig2, ax2 = plt.subplots(figsize=(9, 7))
@@ -284,7 +293,7 @@ def mostra_grafici(df):
     legend.set_loc('upper right')
     sns.despine()
     fig2.tight_layout()
-    fig2.savefig('grafico_2_distribuzioni.png', dpi=150, bbox_inches='tight')
+    fig2.savefig(percorso_output('grafico_2_distribuzioni.png'), dpi=150, bbox_inches='tight')
     plt.close(fig2)
 
     fig3, ax3 = plt.subplots(figsize=(9, 7))
@@ -295,7 +304,7 @@ def mostra_grafici(df):
     ax3.set_xlabel('')
     sns.despine()
     fig3.tight_layout()
-    fig3.savefig('grafico_3_box_plot.png', dpi=150, bbox_inches='tight')
+    fig3.savefig(percorso_output('grafico_3_box_plot.png'), dpi=150, bbox_inches='tight')
     plt.close(fig3)
 
     fig4, ax4 = plt.subplots(figsize=(9, 7))
@@ -310,10 +319,10 @@ def mostra_grafici(df):
                  f'{int(height):,}', ha="center", fontsize=10, fontweight='bold', color='#2c3e50')
     sns.despine()
     fig4.tight_layout()
-    fig4.savefig('grafico_4_volume_partite.png', dpi=150, bbox_inches='tight')
+    fig4.savefig(percorso_output('grafico_4_volume_partite.png'), dpi=150, bbox_inches='tight')
     plt.close(fig4)
 
-    print("[OK] Creati anche i PNG singoli:")
+    print("[OK] Creati anche i PNG singoli in 'grafici/':")
     print("     - grafico_1_costo_vs_win_rate.png")
     print("     - grafico_2_distribuzioni.png")
     print("     - grafico_3_box_plot.png")
