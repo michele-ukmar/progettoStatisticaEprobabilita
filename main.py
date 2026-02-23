@@ -230,7 +230,17 @@ def mostra_grafici(df):
     sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette, 
                 fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
     
-    ax2.set_title('2. Distribuzioni di Probabilità (Gaussiane)', fontsize=12, pad=8)
+    # Calcolo delle medie per tracciare le linee verticali tratteggiate
+    media_cycle = df[df['Categoria'] == 'Cycle']['Win_Rate'].mean()
+    media_beatdown = df[df['Categoria'] == 'Beatdown']['Win_Rate'].mean()
+    media_midrange = df[df['Categoria'] == 'Midrange']['Win_Rate'].mean()
+    
+    # Tracciamo le linee verticali tratteggiate per la MEDIA
+    ax2.axvline(media_cycle, color='#3498db', linestyle='--', linewidth=2, alpha=0.8)
+    ax2.axvline(media_beatdown, color='#e74c3c', linestyle='--', linewidth=2, alpha=0.8)
+    ax2.axvline(media_midrange, color='#2ecc71', linestyle='--', linewidth=2, alpha=0.8)
+    
+    ax2.set_title('2. Distribuzioni e Medie (Linee Tratteggiate = Media)', fontsize=12, pad=8)
     ax2.set_xlabel('Win Rate %', fontsize=10)
     ax2.set_ylabel('Densità', fontsize=10)
     legend = ax2.get_legend()
@@ -240,9 +250,11 @@ def mostra_grafici(df):
 
     ax3 = axs[1, 0]
     sns.boxplot(x='Categoria', y='Win_Rate', data=df, hue='Categoria', palette=custom_palette, 
-                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False)
+                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False,
+                showmeans=True,
+                meanprops={"marker":"D", "markerfacecolor":"white", "markeredgecolor":"black", "markersize":8})
     
-    ax3.set_title('3. Analisi dei Quartili e Valori Anomali (Box Plot)', fontsize=12, pad=8)
+    ax3.set_title('3. Analisi dei Quartili (Linea=Mediana, Rombo=Media)', fontsize=12, pad=8)
     ax3.set_ylabel('Win Rate %', fontsize=10)
     ax3.set_xlabel('')
 
@@ -284,7 +296,18 @@ def mostra_grafici(df):
     fig2, ax2 = plt.subplots(figsize=(9, 7))
     sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette,
                 fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
-    ax2.set_title('Distribuzioni di Probabilità (Gaussiane)', fontsize=13, pad=8)
+    
+    # Calcolo delle medie per tracciare le linee verticali tratteggiate
+    media_cycle = df[df['Categoria'] == 'Cycle']['Win_Rate'].mean()
+    media_beatdown = df[df['Categoria'] == 'Beatdown']['Win_Rate'].mean()
+    media_midrange = df[df['Categoria'] == 'Midrange']['Win_Rate'].mean()
+    
+    # Tracciamo le linee verticali tratteggiate per la MEDIA
+    ax2.axvline(media_cycle, color='#3498db', linestyle='--', linewidth=2, alpha=0.8)
+    ax2.axvline(media_beatdown, color='#e74c3c', linestyle='--', linewidth=2, alpha=0.8)
+    ax2.axvline(media_midrange, color='#2ecc71', linestyle='--', linewidth=2, alpha=0.8)
+    
+    ax2.set_title('Distribuzioni e Medie (Linee Tratteggiate = Media)', fontsize=13, pad=8)
     ax2.set_xlabel('Win Rate %', fontsize=10)
     ax2.set_ylabel('Densità', fontsize=10)
     legend = ax2.get_legend()
@@ -298,8 +321,10 @@ def mostra_grafici(df):
 
     fig3, ax3 = plt.subplots(figsize=(9, 7))
     sns.boxplot(x='Categoria', y='Win_Rate', data=df, hue='Categoria', palette=custom_palette,
-                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False)
-    ax3.set_title('Analisi Quartili e Valori Anomali (Box Plot)', fontsize=13, pad=8)
+                width=0.5, linewidth=2, fliersize=5, ax=ax3, legend=False,
+                showmeans=True,
+                meanprops={"marker":"D", "markerfacecolor":"white", "markeredgecolor":"black", "markersize":8})
+    ax3.set_title('Analisi Quartili (Linea=Mediana, Rombo=Media)', fontsize=13, pad=8)
     ax3.set_ylabel('Win Rate %', fontsize=10)
     ax3.set_xlabel('')
     sns.despine()
