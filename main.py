@@ -358,7 +358,7 @@ def grafico_wincondition_pie(df, top_n=15):
 
     # Stile coerente con gli altri grafici
     sns.set_style('whitegrid')
-    fig, ax = plt.subplots(figsize=(10, 9))
+    fig, ax = plt.subplots(figsize=(11, 10))
     fig.patch.set_facecolor('#f8f9fa')
 
     try:
@@ -366,10 +366,16 @@ def grafico_wincondition_pie(df, top_n=15):
     except Exception:
         colors = None
 
-    # Grafico a torta classico (senza buco), percentuali interne con autopct
-    wedges, texts, autotexts = ax.pie(sizes, startangle=140, colors=colors,
-                                      autopct='%1.1f%%', pctdistance=0.75,
-                                      wedgeprops=dict(edgecolor='white'))
+    # Percentuali posizionate sul bordo del pie
+    wedges, texts, autotexts = ax.pie(
+        sizes,
+        startangle=140,
+        colors=colors,
+        autopct='%1.1f%%',
+        pctdistance=0.93,
+        wedgeprops=dict(edgecolor='white'),
+        textprops=dict(fontsize=10, fontweight='bold', color='#2c3e50')
+    )
 
     ax.axis('equal')
     ax.set_title('Distribuzione Wincondition (peso = partite giocate)', fontsize=14, fontweight='bold', pad=14)
