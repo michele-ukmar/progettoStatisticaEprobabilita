@@ -392,56 +392,6 @@ def grafico_wincondition_pie(df, top_n=15):
     print(f"[OK] Grafico a torta delle wincondition (top {top_n}) salvato in '{output_file}'")
 
 
-def grafico_wincondition_donut(df, top_n=15):
-    """Genera una variante donut delle wincondition (top_n), con le prime 3 esplose."""
-    if 'winCon' not in df.columns:
-        print("[WARN] Colonna 'winCon' non presente nel dataset. Impossibile creare il donut chart.")
-        return
-
-    # Usa il conteggio dei mazzi (numero di mazzi per winCon) invece delle partite
-    counts = df['winCon'].value_counts(dropna=False).sort_values(ascending=False)
-    if len(counts) > top_n:
-        top = counts.iloc[:top_n].copy()
-        resto = counts.iloc[top_n:].sum()
-        top['Altro'] = resto
-        counts_plot = top
-    else:
-        counts_plot = counts
-
-    labels = counts_plot.index.astype(str).tolist()
-    sizes = counts_plot.values
-    total = sizes.sum()
-
-    sns.set_style('whitegrid')
-    fig, ax = plt.subplots(figsize=(10, 9))
-    fig.patch.set_facecolor('#f8f9fa')
-
-    try:
-        colors = sns.color_palette('tab20', n_colors=len(labels))
-    except Exception:
-        colors = None
-
-    # Grafico a torta classico (tutti i segmenti uniti, senza explode)
-    wedges, texts, autotexts = ax.pie(sizes, startangle=140, colors=colors,
-                                      autopct='%1.1f%%', pctdistance=0.75,
-                                      wedgeprops=dict(edgecolor='white', linewidth=1.2))
-
-    ax.axis('equal')
-    ax.set_title('Wincondition (conteggio mazzi) — top ' + str(top_n), fontsize=14, fontweight='bold', pad=14)
-
-    # Legenda compatta a destra
-    legend_labels = [f"{lab}: {int(val)} mazzi ({(val/total*100 if total>0 else 0):.1f}%)" for lab, val in zip(labels, sizes)]
-    from matplotlib.patches import Patch
-    legend_handles = [Patch(facecolor=colors[i] if colors else None, edgecolor='white') for i in range(len(labels))]
-    ax.legend(legend_handles, legend_labels, bbox_to_anchor=(1.02, 0.5), loc='center left', fontsize=9,
-              frameon=True, title='WinCon (mazzi)', title_fontsize=10)
-
-    plt.subplots_adjust(left=0.02, right=0.74)
-    output_file = percorso_output('grafico_wincondition_donut.png')
-    fig.savefig(output_file, dpi=150, bbox_inches='tight', facecolor=fig.get_facecolor())
-    plt.close(fig)
-    print(f"[OK] Donut delle wincondition (top {top_n}) salvato in '{output_file}'")
-
 def main():
     file_path = 'dataset_clash.csv'
     dataset = carica_dataset(file_path)
@@ -451,7 +401,6 @@ def main():
     mostra_grafici(dataset)
     grafico_top_5_combinato(dataset)
     grafico_wincondition_pie(dataset)
-    grafico_wincondition_donut(dataset)
 
 if __name__ == "__main__":
     main()
