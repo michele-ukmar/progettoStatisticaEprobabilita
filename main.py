@@ -35,10 +35,8 @@ def valida_dataset(df):
     if df.empty:
         raise ValueError("Il dataset e' vuoto dopo la pulizia dei dati mancanti.")
     
-    # Remove invalid category rows (header rows or bad data)
     df = df[df['Categoria'] != 'Category']
     
-    # Convert numeric columns to proper types
     df['Win_Rate'] = pd.to_numeric(df['Win_Rate'], errors='coerce')
     df['Costo_Elisir'] = pd.to_numeric(df['Costo_Elisir'], errors='coerce')
     df['Partite'] = pd.to_numeric(df['Partite'], errors='coerce')
@@ -91,68 +89,53 @@ def calcola_bayes(df, soglia_top=52.0):
         print(f"   - Probabilità che un mazzo di fascia alta sia Beatdown: {prob_condizionata*100:.1f}%")
 
 def grafico_top_5_combinato(df):
-    """Genera un unico grafico con tutti i top 5 mazzi (winrate + partite) combinati con assi sincronizzati."""
     from matplotlib.patches import Patch
     
-    # Palette coerente
     custom_palette = {"Cycle": "#3498db", "Beatdown": "#e74c3c", "Midrange": "#2ecc71"}
     
-    # Seleziona i top 5 mazzi per winrate e partite
     df_top5_wr = df.nlargest(5, 'Win_Rate')[['Mazzo', 'Win_Rate', 'Partite', 'Categoria']].reset_index(drop=True)
     df_top5_pt = df.nlargest(5, 'Partite')[['Mazzo', 'Win_Rate', 'Partite', 'Categoria']].reset_index(drop=True)
     
-    # Aggiungi etichetta per identificare il gruppo
     df_top5_wr['Gruppo'] = 'Mazzi più Vincenti'
     df_top5_pt['Gruppo'] = 'Mazzi più Giocati'
     
-    # Combina i due dataset
     df_combined = pd.concat([df_top5_wr, df_top5_pt], ignore_index=True)
     
-    # Calcola i range sincronizzati per gli assi Y
     max_wr = max(df_top5_wr['Win_Rate'].max(), df_top5_pt['Win_Rate'].max())
     max_pt = max(df_top5_wr['Partite'].max(), df_top5_pt['Partite'].max())
     
-    # Configura lo stile
     sns.set_style("whitegrid")
     fig, ax_main = plt.subplots(figsize=(18, 8))
     fig.patch.set_facecolor('#f8f9fa')
     ax_main.set_facecolor('#ffffff')
     
-    # Colori per le barre (basati sulla categoria)
     colors = [custom_palette[cat] for cat in df_combined['Categoria']]
     x = np.arange(len(df_combined))
     width = 0.36
     
-    # Barre per Win Rate (asse sinistro)
     bars_wr = ax_main.bar(x - width/2, df_combined['Win_Rate'], width, label='Win Rate %', 
                           color=colors, alpha=0.88, edgecolor='#2c3e50', linewidth=2.0)
     
-    # Asse destro per Partite Giocate
     ax_aux = ax_main.twinx()
     ax_aux.set_facecolor('none')
     bars_pt = ax_aux.bar(x + width/2, df_combined['Partite'], width, label='Partite Giocate', 
                          color='#f39c12', alpha=0.75, edgecolor='#2c3e50', linewidth=2.0)
     
-    # Configura asse sinistro (Win Rate)
     ax_main.set_ylabel('Win Rate %', fontsize=12, fontweight='bold', color='#2c3e50', labelpad=10)
     ax_main.set_ylim(44, max_wr + 2.5)
     ax_main.grid(axis='y', alpha=0.25, linestyle='-', linewidth=0.8, color='#bdc3c7')
     ax_main.tick_params(axis='y', labelsize=10, colors='#2c3e50')
     
-    # Configura asse destro (Partite Giocate) - SINCRONIZZATO
     ax_aux.set_ylabel('Partite Giocate', fontsize=12, fontweight='bold', color='#2c3e50', labelpad=10)
     ax_aux.set_ylim(0, max_pt + max_pt * 0.15)
     ax_aux.tick_params(axis='y', labelsize=10, colors='#2c3e50')
     
-    # Configura etichette X
     ax_main.set_xticks(x)
     nomi_mazzi = [mazzo[:20] for mazzo in df_combined['Mazzo']]
     ax_main.set_xticklabels(nomi_mazzi, rotation=35, ha='right', fontsize=10, fontweight='bold', color='#2c3e50')
     
-    # Aggiungi linea di separazione tra i due gruppi
     ax_main.axvline(x=4.5, color='#7f8c8d', linestyle='--', linewidth=2.5, alpha=0.6, zorder=2)
     
-    # Aggiungi etichette dei gruppi
     ax_main.text(2, max_wr + 1.5, 'Mazzi più Vincenti', fontsize=11, fontweight='bold', 
                 color='#2c3e50', ha='center', bbox=dict(boxstyle='round,pad=0.5', 
                 facecolor='#ecf0f1', edgecolor='#2c3e50', linewidth=1.5))
@@ -160,19 +143,16 @@ def grafico_top_5_combinato(df):
                 color='#2c3e50', ha='center', bbox=dict(boxstyle='round,pad=0.5', 
                 facecolor='#ecf0f1', edgecolor='#2c3e50', linewidth=1.5))
     
-    # Valori sopra le barre (Win Rate)
     for i, (bar, val) in enumerate(zip(bars_wr, df_combined['Win_Rate'])):
         ax_main.text(bar.get_x() + bar.get_width()/2., val + 0.3,
                     f'{val:.1f}%', ha='center', va='bottom', fontsize=8, fontweight='bold', 
                     color=colors[i], bbox=dict(boxstyle='round,pad=0.2', facecolor='white', edgecolor='none', alpha=0.7))
     
-    # Valori sopra le barre (Partite Giocate)
     for bar, val in zip(bars_pt, df_combined['Partite']):
         ax_aux.text(bar.get_x() + bar.get_width()/2., val + max_pt * 0.01,
                    f'{int(val):,}', ha='center', va='bottom', fontsize=8, fontweight='bold', 
                    color='#e67e22', bbox=dict(boxstyle='round,pad=0.2', facecolor='white', edgecolor='none', alpha=0.7))
     
-    # Stile degli spine
     sns.despine(ax=ax_main, top=True, right=True)
     ax_aux.spines['top'].set_visible(False)
     ax_aux.spines['left'].set_visible(False)
@@ -180,11 +160,9 @@ def grafico_top_5_combinato(df):
     ax_aux.spines['right'].set_linewidth(1.5)
     ax_aux.spines['right'].set_color('#2c3e50')
     
-    # Titolo
     ax_main.set_title('Mazzi più Vincenti vs Mazzi più Giocati', 
                      fontsize=14, fontweight='bold', pad=15, color='#2c3e50')
     
-    # Legenda
     legend_elements = [
         Patch(facecolor='#e74c3c', edgecolor='#2c3e50', label='Beatdown', linewidth=1.5),
         Patch(facecolor='#3498db', edgecolor='#2c3e50', label='Cycle', linewidth=1.5),
@@ -203,7 +181,6 @@ def grafico_top_5_combinato(df):
     plt.close(fig)
 
 def mostra_grafici(df):
-    """Genera dashboard con 4 grafici."""
     sns.set_theme(style="whitegrid", context="talk")
     plt.rcParams['figure.figsize'] = (16, 12)
     plt.rcParams['font.weight'] = 'bold'
@@ -230,12 +207,10 @@ def mostra_grafici(df):
     sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette, 
                 fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
     
-    # Calcolo delle medie per tracciare le linee verticali tratteggiate
     media_cycle = df[df['Categoria'] == 'Cycle']['Win_Rate'].mean()
     media_beatdown = df[df['Categoria'] == 'Beatdown']['Win_Rate'].mean()
     media_midrange = df[df['Categoria'] == 'Midrange']['Win_Rate'].mean()
     
-    # Tracciamo le linee verticali tratteggiate per la MEDIA
     ax2.axvline(media_cycle, color='#3498db', linestyle='--', linewidth=2, alpha=0.8)
     ax2.axvline(media_beatdown, color='#e74c3c', linestyle='--', linewidth=2, alpha=0.8)
     ax2.axvline(media_midrange, color='#2ecc71', linestyle='--', linewidth=2, alpha=0.8)
@@ -297,12 +272,10 @@ def mostra_grafici(df):
     sns.kdeplot(data=df, x='Win_Rate', hue='Categoria', palette=custom_palette,
                 fill=True, alpha=0.3, linewidth=3, common_norm=False, ax=ax2)
     
-    # Calcolo delle medie per tracciare le linee verticali tratteggiate
     media_cycle = df[df['Categoria'] == 'Cycle']['Win_Rate'].mean()
     media_beatdown = df[df['Categoria'] == 'Beatdown']['Win_Rate'].mean()
     media_midrange = df[df['Categoria'] == 'Midrange']['Win_Rate'].mean()
     
-    # Tracciamo le linee verticali tratteggiate per la MEDIA
     ax2.axvline(media_cycle, color='#3498db', linestyle='--', linewidth=2, alpha=0.8)
     ax2.axvline(media_beatdown, color='#e74c3c', linestyle='--', linewidth=2, alpha=0.8)
     ax2.axvline(media_midrange, color='#2ecc71', linestyle='--', linewidth=2, alpha=0.8)
@@ -359,16 +332,12 @@ def mostra_grafici(df):
 
 
 def grafico_wincondition_pie(df, top_n=15):
-    """Genera un grafico a torta delle wincondition (mostra le prime `top_n`), pesato
-    per il totale di `Partite` e lo salva in grafici/."""
     if 'winCon' not in df.columns or 'Partite' not in df.columns:
         print("[WARN] Colonna 'winCon' o 'Partite' non presente nel dataset. Impossibile creare il pie chart.")
         return
 
-    # Somma delle partite per ogni wincondition (peso dei segmenti)
     sums = df.groupby('winCon', dropna=False)['Partite'].sum().sort_values(ascending=False)
 
-    # Prendi le top_n e raggruppa il resto in 'Altro'
     if len(sums) > top_n:
         top = sums.iloc[:top_n].copy()
         resto = sums.iloc[top_n:].sum()
@@ -381,7 +350,6 @@ def grafico_wincondition_pie(df, top_n=15):
     sizes = sums_plot.values
     total = sizes.sum()
 
-    # Stile coerente con gli altri grafici
     sns.set_style('whitegrid')
     fig, ax = plt.subplots(figsize=(11, 10))
     fig.patch.set_facecolor('#f8f9fa')
@@ -405,7 +373,6 @@ def grafico_wincondition_pie(df, top_n=15):
     ax.axis('equal')
     ax.set_title('Distribuzione Wincondition (peso = partite giocate)', fontsize=14, fontweight='bold', pad=14)
 
-    # Costruisci una legenda dettagliata con valore assoluto e percentuale
     legend_labels = []
     for lab, val in zip(labels, sizes):
         pct = val / total * 100 if total > 0 else 0
