@@ -311,7 +311,7 @@ def grafico_volume_partite(df):
                 f"{int(val):,}", va="center", ha="left",
                 fontsize=10, fontweight="bold", color=col)
 
-    for label, col in zip(ax.get_yticklabels(), reversed(colori)):
+    for label, col in zip(ax.get_yticklabels(), colori):
         label.set_color(col)
         label.set_fontweight("bold")
 
