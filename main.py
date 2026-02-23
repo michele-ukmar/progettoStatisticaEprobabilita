@@ -5,7 +5,7 @@ import seaborn as sns
 from scipy import stats
 from pathlib import Path
 
-COLONNE_OBBLIGATORIE = {"Categoria", "Win_Rate", "Costo_Elisir", "Partite"}
+COLONNE_OBBLIGATORIE = {"Categoria", "Win_Rate", "Costo_Elisir", "Partite", "winCon"}
 OUTPUT_DIR = Path("grafici")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -328,8 +328,119 @@ def mostra_grafici(df):
     print("     - grafico_3_box_plot.png")
     print("     - grafico_4_volume_partite.png")
     print("     - grafico_7_top5_combinato.png")
+    print("     - grafico_wincondition_pie.png")
     # Uncomment the line below if running in an interactive environment with a display
     # plt.show()
+
+
+def grafico_wincondition_pie(df, top_n=15):
+    """Genera un grafico a torta delle wincondition (mostra le prime `top_n`), pesato
+    per il totale di `Partite` e lo salva in grafici/."""
+    if 'winCon' not in df.columns or 'Partite' not in df.columns:
+        print("[WARN] Colonna 'winCon' o 'Partite' non presente nel dataset. Impossibile creare il pie chart.")
+        return
+
+    # Somma delle partite per ogni wincondition (peso dei segmenti)
+    sums = df.groupby('winCon', dropna=False)['Partite'].sum().sort_values(ascending=False)
+
+    # Prendi le top_n e raggruppa il resto in 'Altro'
+    if len(sums) > top_n:
+        top = sums.iloc[:top_n].copy()
+        resto = sums.iloc[top_n:].sum()
+        top['Altro'] = resto
+        sums_plot = top
+    else:
+        sums_plot = sums
+
+    labels = sums_plot.index.astype(str).tolist()
+    sizes = sums_plot.values
+    total = sizes.sum()
+
+    # Stile coerente con gli altri grafici
+    sns.set_style('whitegrid')
+    fig, ax = plt.subplots(figsize=(10, 9))
+    fig.patch.set_facecolor('#f8f9fa')
+
+    try:
+        colors = sns.color_palette('tab20', n_colors=len(labels))
+    except Exception:
+        colors = None
+
+    # Grafico a torta classico (senza buco), percentuali interne con autopct
+    wedges, texts, autotexts = ax.pie(sizes, startangle=140, colors=colors,
+                                      autopct='%1.1f%%', pctdistance=0.75,
+                                      wedgeprops=dict(edgecolor='white'))
+
+    ax.axis('equal')
+    ax.set_title('Distribuzione Wincondition (peso = partite giocate)', fontsize=14, fontweight='bold', pad=14)
+
+    # Costruisci una legenda dettagliata con valore assoluto e percentuale
+    legend_labels = []
+    for lab, val in zip(labels, sizes):
+        pct = val / total * 100 if total > 0 else 0
+        legend_labels.append(f"{lab}: {int(val):,} pt ({pct:.1f}%)")
+
+    from matplotlib.patches import Patch
+    legend_handles = [Patch(facecolor=colors[i] if colors else None, edgecolor='white') for i in range(len(labels))]
+    ax.legend(legend_handles, legend_labels, bbox_to_anchor=(1.02, 0.5), loc='center left', fontsize=10,
+              frameon=True, title='WinCondition (partite)', title_fontsize=11)
+
+    plt.subplots_adjust(left=0.02, right=0.74)
+    output_file = percorso_output('grafico_wincondition_pie.png')
+    fig.savefig(output_file, dpi=150, bbox_inches='tight', facecolor=fig.get_facecolor())
+    plt.close(fig)
+    print(f"[OK] Grafico a torta delle wincondition (top {top_n}) salvato in '{output_file}'")
+
+
+def grafico_wincondition_donut(df, top_n=15):
+    """Genera una variante donut delle wincondition (top_n), con le prime 3 esplose."""
+    if 'winCon' not in df.columns:
+        print("[WARN] Colonna 'winCon' non presente nel dataset. Impossibile creare il donut chart.")
+        return
+
+    # Usa il conteggio dei mazzi (numero di mazzi per winCon) invece delle partite
+    counts = df['winCon'].value_counts(dropna=False).sort_values(ascending=False)
+    if len(counts) > top_n:
+        top = counts.iloc[:top_n].copy()
+        resto = counts.iloc[top_n:].sum()
+        top['Altro'] = resto
+        counts_plot = top
+    else:
+        counts_plot = counts
+
+    labels = counts_plot.index.astype(str).tolist()
+    sizes = counts_plot.values
+    total = sizes.sum()
+
+    sns.set_style('whitegrid')
+    fig, ax = plt.subplots(figsize=(10, 9))
+    fig.patch.set_facecolor('#f8f9fa')
+
+    try:
+        colors = sns.color_palette('tab20', n_colors=len(labels))
+    except Exception:
+        colors = None
+
+    # Grafico a torta classico (tutti i segmenti uniti, senza explode)
+    wedges, texts, autotexts = ax.pie(sizes, startangle=140, colors=colors,
+                                      autopct='%1.1f%%', pctdistance=0.75,
+                                      wedgeprops=dict(edgecolor='white', linewidth=1.2))
+
+    ax.axis('equal')
+    ax.set_title('Wincondition (conteggio mazzi) — top ' + str(top_n), fontsize=14, fontweight='bold', pad=14)
+
+    # Legenda compatta a destra
+    legend_labels = [f"{lab}: {int(val)} mazzi ({(val/total*100 if total>0 else 0):.1f}%)" for lab, val in zip(labels, sizes)]
+    from matplotlib.patches import Patch
+    legend_handles = [Patch(facecolor=colors[i] if colors else None, edgecolor='white') for i in range(len(labels))]
+    ax.legend(legend_handles, legend_labels, bbox_to_anchor=(1.02, 0.5), loc='center left', fontsize=9,
+              frameon=True, title='WinCon (mazzi)', title_fontsize=10)
+
+    plt.subplots_adjust(left=0.02, right=0.74)
+    output_file = percorso_output('grafico_wincondition_donut.png')
+    fig.savefig(output_file, dpi=150, bbox_inches='tight', facecolor=fig.get_facecolor())
+    plt.close(fig)
+    print(f"[OK] Donut delle wincondition (top {top_n}) salvato in '{output_file}'")
 
 def main():
     file_path = 'dataset_clash.csv'
@@ -339,6 +450,8 @@ def main():
     calcola_bayes(dataset)
     mostra_grafici(dataset)
     grafico_top_5_combinato(dataset)
+    grafico_wincondition_pie(dataset)
+    grafico_wincondition_donut(dataset)
 
 if __name__ == "__main__":
     main()
