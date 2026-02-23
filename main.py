@@ -1,5 +1,7 @@
 ﻿import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Backend non interattivo
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.patheffects as pe
@@ -188,22 +190,35 @@ def grafico_costo_vs_winrate(df):
 # ──────────────────────────────────────────────────────────────────────────────
 
 def grafico_distribuzioni(df):
-    fig, axes = plt.subplots(1, 3, figsize=(16, 6), sharey=False)
+    fig, axes = plt.subplots(1, 3, figsize=(16, 6), sharey=True)
     _stile_dark(fig, axes)
     fig.subplots_adjust(wspace=0.35, top=0.88)
 
     categorie = ["Cycle", "Beatdown", "Midrange"]
+    
+    # Calcola il range X globale per uniformità
+    all_wr = df[df['Categoria'].isin(categorie)]['Win_Rate'].dropna()
+    x_min = all_wr.min() - 1
+    x_max = all_wr.max() + 1
+    x_range = np.linspace(x_min, x_max, 300)
+    
+    # Calcola i valori Y massimi per trovare il limite Y comune
+    y_max_global = 0
+    distributions = {}
+    for cat in categorie:
+        sub = df[df['Categoria'] == cat]['Win_Rate'].dropna()
+        kde = stats.gaussian_kde(sub)
+        kde_y = kde(x_range)
+        distributions[cat] = (sub, kde, kde_y)
+        y_max_global = max(y_max_global, kde_y.max())
+    
     for ax, cat in zip(axes, categorie):
-        sub  = df[df['Categoria'] == cat]['Win_Rate'].dropna()
+        sub, kde, kde_y = distributions[cat]
         col  = PALETTE[cat]
 
-        # KDE riempito
-        kde_x = np.linspace(sub.min() - 1, sub.max() + 1, 300)
-        kde   = stats.gaussian_kde(sub)
-        kde_y = kde(kde_x)
-
-        ax.fill_between(kde_x, kde_y, alpha=0.25, color=col)
-        ax.plot(kde_x, kde_y, color=col, linewidth=2.5)
+        # KDE riempito con X uniforme
+        ax.fill_between(x_range, kde_y, alpha=0.25, color=col)
+        ax.plot(x_range, kde_y, color=col, linewidth=2.5)
 
         # Media e mediana
         ax.axvline(sub.mean(),   color=COL_GOLD,   linestyle="--", linewidth=1.5,
@@ -217,6 +232,10 @@ def grafico_distribuzioni(df):
                 bbox=dict(boxstyle="round,pad=0.3", facecolor=COL_BG,
                           edgecolor=col, linewidth=1.2))
 
+        # Imposta limiti uguali per tutti i subplot
+        ax.set_xlim(x_min, x_max)
+        ax.set_ylim(0, y_max_global * 1.05)
+        
         _titolo_grafico(ax, cat)
         ax.set_xlabel("Win Rate (%)", fontsize=10)
         ax.set_ylabel("Densità", fontsize=10)
