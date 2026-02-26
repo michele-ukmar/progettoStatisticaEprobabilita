@@ -52,7 +52,7 @@ def _stile_dark(fig, axes):
 def _titolo_grafico(ax, testo, sottotitolo=None):
     """Aggiunge titolo principale + eventuale sottotitolo stilizzati."""
     ax.set_title(testo, fontsize=15, fontweight="bold", color=COL_TEXT,
-                 pad=18, loc="center")
+                    pad=18, loc="center")
     if sottotitolo:
         ax.annotate(sottotitolo, xy=(0.5, 1.01), xycoords="axes fraction",
                     ha="center", fontsize=9, color=COL_MUTED, style="italic")
@@ -145,6 +145,91 @@ def calcola_bayes(df, soglia_top=52.0):
         prob_condizionata = prob_intersezione / prob_top_tier
         print(f"\n3. PROBABILITÀ CONDIZIONATA (BAYES)")
         print(f"   - Probabilità che un mazzo di fascia alta sia Beatdown: {prob_condizionata*100:.1f}%")
+
+
+def grafico_bayes_posterior(df, soglia_top=52.0):
+    categorie = [c for c in ["Cycle", "Beatdown", "Midrange"] if c in set(df['Categoria'])]
+    if not categorie:
+        return
+
+    top_tier = df[df['Win_Rate'] > soglia_top]
+    if top_tier.empty:
+        fig, ax = plt.subplots(figsize=(10, 5))
+        _stile_dark(fig, ax)
+        ax.axis("off")
+        ax.text(
+            0.5, 0.5,
+            f"Nessun mazzo sopra la soglia {soglia_top:.1f}%\nImpossibile stimare P(Categoria | Top Tier)",
+            ha="center", va="center", fontsize=12, color=COL_TEXT,
+            bbox=dict(boxstyle="round,pad=0.5", facecolor=COL_PANEL, edgecolor=COL_GRID, linewidth=1.2)
+        )
+        _titolo_grafico(ax, "Bayes — Probabilità Condizionata per Categoria")
+        _salva(fig, "grafico_8_bayes_posterior.png")
+        return
+
+    prior = df['Categoria'].value_counts(normalize=True).reindex(categorie, fill_value=0)
+    posterior = top_tier['Categoria'].value_counts(normalize=True).reindex(categorie, fill_value=0)
+    fig, ax = plt.subplots(figsize=(12, 6))
+    _stile_dark(fig, ax)
+
+    x = np.arange(len(categorie))
+    width = 0.36
+    colori = [PALETTE.get(c, COL_MUTED) for c in categorie]
+
+    bars_prior = ax.bar(
+        x - width / 2,
+        prior.values * 100,
+        width,
+        color=COL_MUTED,
+        alpha=0.75,
+        edgecolor="white",
+        linewidth=1,
+        label="P(Categoria)"
+    )
+    bars_post = ax.bar(
+        x + width / 2,
+        posterior.values * 100,
+        width,
+        color=colori,
+        alpha=0.9,
+        edgecolor="white",
+        linewidth=1.2,
+        label=f"P(Categoria | Win Rate > {soglia_top:.0f}%)"
+    )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(categorie, fontsize=11, fontweight="bold")
+    for tick, col in zip(ax.get_xticklabels(), colori):
+        tick.set_color(col)
+
+    ax.set_ylabel("Probabilità (%)", fontsize=11)
+    ax.set_ylim(0, max(5, (posterior.values * 100).max(), (prior.values * 100).max()) * 1.35)
+
+    for bar in bars_prior:
+        h = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, h + 0.7, f"{h:.1f}%",
+                ha="center", va="bottom", fontsize=9, color=COL_TEXT)
+
+    for bar in bars_post:
+        h = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, h + 0.7, f"{h:.1f}%",
+                ha="center", va="bottom", fontsize=9, color="white", fontweight="bold")
+
+    _titolo_grafico(
+        ax,
+        "Bayes — Prior vs Posterior per Categoria",
+        f"Confronto tra P(Categoria) e P(Categoria | Win Rate > {soglia_top:.0f}%)"
+    )
+
+    legend_elements = [
+        mpatches.Patch(facecolor=COL_MUTED, edgecolor="white", label="P(Categoria) — Prior"),
+        mpatches.Patch(facecolor=PALETTE.get("Cycle", COL_MUTED), edgecolor="white", label="Cycle"),
+        mpatches.Patch(facecolor=PALETTE.get("Beatdown", COL_MUTED), edgecolor="white", label="Beatdown"),
+        mpatches.Patch(facecolor=PALETTE.get("Midrange", COL_MUTED), edgecolor="white", label="Midrange"),
+    ]
+    leg = ax.legend(handles=legend_elements, frameon=True, facecolor=COL_BG, edgecolor=COL_GRID,
+                    labelcolor=COL_TEXT, fontsize=9, loc="upper right")
+    _salva(fig, "grafico_8_bayes_posterior.png")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -677,6 +762,7 @@ def mostra_grafici(df):
     grafico_distribuzioni(df)
     grafico_box_plot(df)
     grafico_volume_partite(df)
+    grafico_bayes_posterior(df)
     grafico_heatmap(df)
 
 
